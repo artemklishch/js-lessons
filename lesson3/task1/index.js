@@ -32,7 +32,7 @@ let num = 17;
 ++num;
 console.log("++num: ", num);
 num++;
-console.log("num++: ", 19);
+console.log("num++: ", 18);
 
 
 
