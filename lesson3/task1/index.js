@@ -29,10 +29,9 @@ let num = 17;
 
 // Постфиксная и префиксная форма записи
 ++num;
-
+console.log(num);
 num++;
-console.log(++num);
-console.log(num++);
+console.log(num);
 
 
 
