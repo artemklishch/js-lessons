@@ -28,9 +28,9 @@ let num = 17;
 
 
 // Постфиксная и префиксная форма записи
-++num;
+// ++num;
 
-num++;
+// num++;
 console.log(++num);
 console.log(num++);
 
