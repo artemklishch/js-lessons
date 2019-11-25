@@ -2,7 +2,7 @@
 +17;
 console.log("+17: ", +17);
 +'77';
-console.log("+'17': ", +'17');
+console.log("+'77': ", +'77');
 
 // Бинарный плюс складывает строки или прибавляет числа
 10 + '5';
@@ -29,9 +29,9 @@ let num = 17;
 
 // Постфиксная и префиксная форма записи
 ++num;
-console.log(num);
+console.log(++num);
 num++;
-console.log(num);
+console.log(num++);
 
 
 
