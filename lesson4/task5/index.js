@@ -9,8 +9,7 @@ for(let i = m; i <= n; i++){
     }else if(i % 4 === 0 && i % 5 !== 0 && i % 3 !== 0){
         res *= i;
     }else if(i % 4 === 0 && i % 3 === 0 && i % 5 !== 0){
-        res *= i; 
-        res -= i; 
+        res = res * i - i; 
     }else if(i % 5 === 0){
         console.log(i);
     }
