@@ -12,6 +12,6 @@ for(let i = m; i <= n; i++){
         res = res * i - i; 
     }else if(i % 5 === 0){
         console.log(i);
-    }
+    }else continue;
 }
 result = res;
