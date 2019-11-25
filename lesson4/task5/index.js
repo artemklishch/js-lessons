@@ -12,4 +12,3 @@ for(let i = m; i <= n; i++){
         console.log(i);
     }else continue;
 }
-console.log(result);
