@@ -1,6 +1,5 @@
 const n = 25;
-let sum, string = '';
+let sum = '';
 for(let i = 0; i <= n; i++ ){
-    string += i;
+    sum += i;
 }
-sum = string;
