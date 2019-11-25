@@ -1,6 +1,6 @@
 const n = 120;
-let sum = 0;
+let sum, result = 0;
 for(let i = 0; i < n; i++){
-    sum += i;
+    result += i;
 }
-console.log(sum);
+sum = result;
