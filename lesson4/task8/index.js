@@ -1,5 +1,5 @@
 let sum = 0;
-let resultAfterDevision, result;
+let result;
 for(let i = 0; i <= 1000; i++){
     sum += i;
 }
