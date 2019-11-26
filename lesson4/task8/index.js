@@ -1,7 +1,7 @@
 let sum = 0;
-let resultAfterDevision, wholePart;
+let resultAfterDevision, result;
 for(let i = 0; i <= 1000; i++){
     sum += i;
 }
-wholePart = sum/1234;
-console.log(wholePart > 0 || false);
+result = sum/1234 > 0 || false;
+console.log(result);
