@@ -1,7 +1,9 @@
 let sum = 0;
-let result;
+let wholePart, reminder, result;
 for(let i = 0; i <= 1000; i++){
     sum += i;
 }
-result = sum/1234 > 0 || false;
+wholePart = Math.trunc(sum/1234);
+reminder = sum/1234 - wholePart;
+result = wholePart > reminder || false;
 console.log(result);
