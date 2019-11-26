@@ -3,8 +3,5 @@ let resultAfterDevision, wholePart;
 for(let i = 0; i <= 1000; i++){
     sum += i;
 }
-wholePart = Math.trunc(sum/1234);
-switch(wholePart > 0){
-    case true: console.log(true); break;
-    case false: console.log(false); break;
-}
+wholePart = sum/1234;
+console.log(wholePart > 0 || false);
