@@ -14,6 +14,7 @@ for(let i = m; i <= n; i++){
         res *= i;
     }else if(i % 5 === 0){
         console.log(i);
+        continue;
     }else continue;
 }
 result = res;
