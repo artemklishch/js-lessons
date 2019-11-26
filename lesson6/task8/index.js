@@ -28,6 +28,6 @@ function uniqueCount(array){
             } 
         }
     }
-    return num + ": " + number;
+    return number;
 }
 console.log(uniqueCount([8, 1,2, 12,13,5,5,6,7, 5,]));
