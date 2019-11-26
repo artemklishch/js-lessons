@@ -1,4 +1,4 @@
-function getArrayBound(arr) {
+function getArrayBounds(arr) {
 	if(!Array.isArray(arr)){
 		return null;
 	}
