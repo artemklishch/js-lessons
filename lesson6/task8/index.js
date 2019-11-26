@@ -19,15 +19,13 @@
 
 function uniqueCount(array){
     let number = 0;
-    let num = 0;
     for(let i = array.length-1; i >= 0; i--){
         for(let j = 0; j < i; j++){
             if(array[i] === array[j]){
-                num = array[i];
                 number++;
             } 
         }
     }
     return number;
 }
-console.log(uniqueCount([8, 1,2, 12,13,5,5,6,7, 5,]));
+// console.log(uniqueCount([8, 1,2, 12,13,5,5,6,7, 5,]));
