@@ -1,5 +1,5 @@
 function compareSums(a, b, c, d){
-    return sum(a, b) > sum(c, d) || false;
+    return sum(a, b) > sum(c, d);
 }
 function sum(from, to){
     let allSum = 0;
