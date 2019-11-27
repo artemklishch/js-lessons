@@ -1,3 +1,4 @@
 function cloneArr(arr){
-    return [...array] = arr;
+    const[...array] = arr;
+    return array;
 }
