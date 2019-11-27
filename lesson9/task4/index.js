@@ -1,7 +1,3 @@
-const getPeople = obj => {
-    let arr = [];
-    for(let prop in obj){
-        arr.push(obj[prop].map(elem => elem.name));
-    }
-    return arr.flat();
-};
+const getPeople = obj => Object.entries(obj)
+    .map(elem => elem = elem[1].map(elem=>elem.name))
+    .flat();
