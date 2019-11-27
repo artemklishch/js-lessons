@@ -1,1 +1,1 @@
-const copyObj = obj => Object.assign(obj).entries(obj);
+const copyObj = obj => Object.assign({}, obj);
