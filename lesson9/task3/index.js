@@ -1,6 +1,5 @@
 const getCustomersList = obj => {
-    let objForSort = {...obj};
-    let arrayOfAgeValues = Object.values(objForSort)
+    let arrayOfAgeValues = Object.values(obj)
         .map(elem=>elem.age)
         .sort((a,b) => a - b);
     const object = {...obj};
