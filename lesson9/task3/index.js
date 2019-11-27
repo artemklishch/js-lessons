@@ -1,19 +1,10 @@
 const getCustomersList = obj => {
-    let arrayOfAgeValues = Object.values(obj)
-        .map(elem=>elem.age)
-        .sort((a,b) => a - b);
-    const object = {...obj};
-    for(let key in object){
-        object[key].id = key;
-    }
-    let arrayOfUsersPrevious = Object.values(object);
-    let arrayOfUsers = [];
-    for(let num of arrayOfAgeValues){
-       for(let i = 0; i < arrayOfUsersPrevious.length; i++){
-            if(arrayOfUsersPrevious[i].age === num){
-                arrayOfUsers.push(arrayOfUsersPrevious[i]);
-            }
-       }
-    }
-    return arrayOfUsers;
+    let previousArrayOfObjects = Object.entries(obj)
+        .map(elem => {
+            elem[1].id = elem[0];
+            return elem[1];
+        });
+    let arrayOfObjects = previousArrayOfObjects.sort((a,b) => a.age > b.age ? 1 : -1);
+    return arrayOfObjects;
+    
 };
