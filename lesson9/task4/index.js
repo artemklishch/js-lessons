@@ -1,8 +1,3 @@
-// const getPeople = obj => Object.entries(obj)
-//     .map(elem => elem = elem[1].map(elem=>elem.name))
-//     .flat();
-
-const getPeople = obj => Object.entries(obj)
-    .map(elem => elem = elem[1])
-    .flat()
+const getPeople = obj => Object.values(obj)
+    .reduce((acc,room) => acc.concat(room), [])
     .map(elem => elem.name);
