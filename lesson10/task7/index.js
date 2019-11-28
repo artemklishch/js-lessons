@@ -1,19 +1,14 @@
 const superRound = (num, points) => {
-    let calc = "1";
-    let point = 0;
+    let point = "1";
     for(let i = 0; i < points; i++){
-        calc+="0";
-        point++;
+        point+="0";
     }
-    calc = Number(calc);
-    let arr = [(Math.floor(num*calc))/calc, 
-        (Math.round(num*calc))/calc,
-        (Math.ceil(num*calc))/calc,
+    return [(Math.floor(num*point))/point, 
+        (Math.round(num*point))/point,
+        (Math.ceil(num*point))/point,
         (Math.trunc(num)),
-        +num.toFixed(point)];
-    return arr;
-
+        +num.toFixed(points)];
 };
     
 
-// console.log(superRound(2.5678971124, 2));
+// console.log(superRound(-2.5678971124, 2));
