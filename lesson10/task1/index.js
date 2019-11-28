@@ -7,6 +7,9 @@ const getFiniteNumbersV2 = arr => arr
 const getNaN = arr => arr
 .filter(elem => Number.isNaN(elem));
 
+// const getNaNV2 = arr => arr
+//     .filter(elem => isNaN(elem) && typeof elem === 'number');
+
 const getNaNV2 = arr => arr.filter(isNaN);
 
 const getIntegers = arr => arr
