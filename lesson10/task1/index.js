@@ -14,6 +14,3 @@ const getNaNV2 = arr => arr.filter(isNaN);
 
 const getIntegers = arr => arr
     .filter(elem => Number.isInteger(elem));
-
-// const arr = [1,2,3.5, NaN, 'text', NaN];
-// console.log(getNaNV2(arr));
