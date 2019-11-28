@@ -2,7 +2,7 @@ const getRandomNumbers = (length, start, end) => {
     if(end < start) return null;
     if(end - start < 1) return null;
     end = Math.ceil(end);
-    start = Math.floor(start);
+    start = Math.ceil(start);
     let arr = [];
     for(let i = 0; i < length; i++){
         arr[i] = Math.round(Math.random() * (end - start)) + start;
