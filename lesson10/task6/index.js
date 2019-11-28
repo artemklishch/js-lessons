@@ -1,8 +1,14 @@
 const getRandomNumbers = (length, start, end) => {
     if(end < start) return null;
     if(end - start < 1) return null;
-    end = Math.ceil(end);
-    start = Math.round(start);
+    if(Number.isInteger(end)){
+        end -= 0.1;
+        end = Math.floor(end);
+    }
+    if(Number.isInteger(start)){
+        start += 0.1;
+        start = Math.ceil(start);
+    }
     let arr = [];
     for(let i = 0; i < length; i++){
         arr[i] = Math.round(Math.random() * (end - start)) + start;
@@ -12,4 +18,4 @@ const getRandomNumbers = (length, start, end) => {
 };
 
 
-// console.log(getRandomNumbers(10, 5, 10));
+//console.log(getRandomNumbers(10, 5, 10));
