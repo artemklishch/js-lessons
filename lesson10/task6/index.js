@@ -1,7 +1,7 @@
 const getRandomNumbers = (length, start, end) => {
     if(end < start) return null;
     if(end - start < 1) return null;
-    end = Math.ceil(end);
+    end = Math.round(end);
     start = Math.ceil(start);
     let arr = [];
     for(let i = 0; i < length; i++){
