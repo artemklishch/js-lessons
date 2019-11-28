@@ -3,7 +3,7 @@ const getRandomNumbers = (length, min, max) => {
     min = Math.ceil(min);
     max = Math.floor(max);
     let arr=[];
-    for(let i = min; i < length; i++){
+    for(let i = min; i <= length; i++){
         let temp = (Math.floor(Math.random() * (max - min)) + min);
         arr.push(temp);
     }
