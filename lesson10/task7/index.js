@@ -5,4 +5,4 @@ const superRound = (num, points) => [(Math.floor(num*Math.pow(10,points)))/Math.
         +num.toFixed(points)];
     
 
-console.log(superRound(-2.5678971124, 2));
+// console.log(superRound(-2.5678971124, 2));
