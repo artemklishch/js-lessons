@@ -1,4 +1,4 @@
-const splitString = (str, len = 10) => {
+const splitString = (str, len) => {
     if(typeof str !== 'string') return null;
     let arr = [];
     let startPosition = 0;
@@ -8,6 +8,14 @@ const splitString = (str, len = 10) => {
             arr.push(chunk);
 		    startPosition += len;   
         }
+        if(!len){
+            let tempStr = ".";
+            for(let i = chunk.length; i < 9; i++){
+                chunk += tempStr;
+            }
+            arr.push(chunk + tempStr);
+		    break;
+        }
         if(chunk.length < len){
             let tempStr = "";
             for(let i = 0; i < len-1; i++){
@@ -15,11 +23,10 @@ const splitString = (str, len = 10) => {
             }
             arr.push(chunk + tempStr);
 		    break;
-        }
-		
+        } 
 	}
     return arr;
 };
 
 // const str = 'abcd efgh';
-// console.log(splitString(str, 4));
+// console.log(splitString(str));
