@@ -11,11 +11,14 @@
     
 //     return arr;
 // };
-const getRandomNumbers = (length, min, max) => 
-    max < min || max - min < 0 ? null :
-        Array(length).fill()
-            .map(() => Math.random()*(max-min)+min)
-            .map(num => num < 0 ? Math.ceil(num) : Math.floor(num));
+const getRandomNumbers = (length, min, max) => {
+    if(max < min) return null;
+    return Array(length).fill()
+    .map(() => Math.random()*(max-min)+min)
+    .map(num => num < 0 ? Math.ceil(num) : Math.floor(num));
+};
+    
+        
 
 
-//console.log(getRandomNumbers(10, -0.1, -1));
+console.log(getRandomNumbers(10, 1, 5));
