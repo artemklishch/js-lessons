@@ -1,24 +1,10 @@
-// const countOccurrences = (string, substring) => {
-//     if(substring.length === 0) return null;
-//     let calc = 0;
-//     let position = 0;
-//     let temp;
-//     while(true){
-//         temp = string.indexOf(substring, position);
-//         if(temp === -1)break;
-//         calc++;
-//         position += temp;
-//     }
-//     return calc;
-// };
-
 const countOccurrences = (string, substring) => {
     if(substring.length === 0) return null;
     let calc = 0;
     let position = 0;
     while(string.indexOf(substring, position) !== -1){
-        calc++;
         position += string.indexOf(substring, position);
+        calc++;
     }
     return calc;
 };
