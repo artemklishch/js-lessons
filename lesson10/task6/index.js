@@ -13,4 +13,4 @@ const getRandomNumbers = (length, min, max) => {
 };
 
 
-// console.log(getRandomNumbers(10, -0.1, 0.1));
+// console.log(getRandomNumbers(10, 5, 10));
