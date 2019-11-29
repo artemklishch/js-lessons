@@ -1,8 +1,9 @@
 const superRound = (num, points) => {
-    let point = "1";
-    for(let i = 0; i < points; i++){
-        point+="0";
-    }
+    // let point = "1";
+    // for(let i = 0; i < points; i++){
+    //     point+="0";
+    // }
+    let point = Math.pow(10,points);
     return [(Math.floor(num*point))/point, 
         (Math.round(num*point))/point,
         (Math.ceil(num*point))/point,
