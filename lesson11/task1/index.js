@@ -10,8 +10,3 @@ const splitText = (text, len = 10) => {
 	}
 	return strArr.join('\n');
 };
-
-
-
-
-// console.log(splitText('abcd efgh', ));
