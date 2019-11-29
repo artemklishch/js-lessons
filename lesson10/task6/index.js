@@ -4,6 +4,5 @@ const getRandomNumbers = (length, min, max) => {
     max = Math.floor(max);
     if(max - min < 0)return null;
     return Array(length).fill()
-    .map(() => Math.random()*(max-min)+min)
-    .map(num => num < 0 ? Math.ceil(num) : Math.floor(num));
+    .map(() => Math.floor(Math.random()*(max-min)+min));
 };
