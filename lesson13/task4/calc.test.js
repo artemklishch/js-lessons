@@ -1,6 +1,6 @@
-import {calc} from './calc.js';
+import { calc } from './calc.js';
 
-it ('should check math operation', () => {
+it('should check math operation', () => {
     const resultPlus = calc("4 + 2");
     expect(resultPlus).toEqual("4 + 2 = 6");
 
