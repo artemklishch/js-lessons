@@ -1,6 +1,6 @@
 'use strict';
 
 import {sendMessage, setMessage} from "./index.js";
-sendMessage("Tom");
+sendMessage("Ann");
 setMessage("Good job!");
-sendMessage("Tom");
+sendMessage("Ann");
