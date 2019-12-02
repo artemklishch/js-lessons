@@ -1,6 +1,6 @@
 'use strict';
 
-let message;
+let message = "Just learn it!";
 export function sendMessage (name){
 	const sender = "Gromecode";
 	console.log(`${name}, ${message} Your ${sender}`);
