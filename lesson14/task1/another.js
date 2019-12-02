@@ -2,5 +2,5 @@
 
 import {sendMessage, setMessage} from "./index.js";
 sendMessage("Ann");
-setMessage("Good job!");
+setMessage("Good job");
 sendMessage("Ann");
