@@ -1,4 +1,4 @@
-let message = "Just learn it!";
+
 function sendMessage(name){
 	const sender = "Gromecode";
 	console.log(`${name}, ${message} Your ${sender}`);
