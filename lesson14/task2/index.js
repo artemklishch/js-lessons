@@ -1,6 +1,6 @@
-let message = "Just learn it!";
+
 const createMessenger = () => {
-	let message = "Hi!";
+	let message = "Just learn it!";
 	function sendMessage(name){
 		const sender = "Gromecode";
 		console.log(`${name}, ${message}. You ${sender}`);
@@ -8,10 +8,15 @@ const createMessenger = () => {
 	function setMessage(text){
 		message = text;
     }
-    
+    function setSender(){
+
+	}
 	return {
 		sendMessage,
 		setMessage,
-		id: message,
 	};
 };
+const obj1 = createMessenger();
+obj1.sendMessage("Bob");
+obj1.setMessage("Good job!");
+obj1.sendMessage("Bob");
