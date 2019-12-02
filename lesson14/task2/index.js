@@ -1,22 +1,24 @@
 
 const createMessenger = () => {
 	let message = "Just learn it!";
+	let sender = "Gromcode";
 	function sendMessage(name){
-		const sender = "Gromecode";
-		console.log(`${name}, ${message}. You ${sender}`);
+		console.log(`${name}, ${message} Your ${sender}`);
 	}
 	function setMessage(text){
 		message = text;
     }
-    function setSender(){
-
+    function setSender(text){
+		sender = text;
 	}
 	return {
 		sendMessage,
 		setMessage,
+		setSender,
 	};
 };
 const obj1 = createMessenger();
 obj1.sendMessage("Bob");
 obj1.setMessage("Good job!");
+obj1.setSender("Gromcode");
 obj1.sendMessage("Bob");
