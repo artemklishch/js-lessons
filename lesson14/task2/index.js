@@ -1,5 +1,5 @@
 'use strict';
-export const createMessenger = () => {
+export default () => {
 	let message = "Just learn it!";
 	let sender = "Gromcode";
 	function sendMessage(name){
@@ -17,8 +17,8 @@ export const createMessenger = () => {
 		setSender,
 	};
 };
-const obj1 = createMessenger();
-obj1.sendMessage("Bob");
-obj1.setMessage("Good job!");
-obj1.setSender("Gromcode");
-obj1.sendMessage("Bob");
+// const obj1 = createMessenger();
+// obj1.sendMessage("Bob");
+// obj1.setMessage("Good job!");
+// obj1.setSender("Gromcode");
+// obj1.sendMessage("Bob");
