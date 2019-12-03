@@ -1,30 +1,30 @@
 export const createLogger = () => {
     let commonArr = [];
     return {
-        warn: (string) => commonArr.unshift(
+        warn: (string) => commonArr.push(
                 {
                     message: string,
                     dateTime:new Date(),
                     type: "warn",
                 }),
-        error: (string) => commonArr.unshift(
+        error: (string) => commonArr.push(
                 {
                     message: string,
                     dateTime:new Date(),
                     type: "error",
                 }),
-        log: (string) => commonArr.unshift(
+        log: (string) => commonArr.push(
                 {
                     message: string,
                     dateTime:new Date(),
                     type: "log",
                 }),
         getRecords: (type) => !type ? commonArr
-                //.sort((a,b) => a.dateTime > b.dateTime ? 1 : -1)
+                .sort((a,b) => a.dateTime > b.dateTime ? 1 : -1)
                 .map(elem => elem = elem.message) :
                 commonArr
                 .filter(elem => elem.type === type)
-                //.sort((a,b) => a.dateTime > b.dateTime ? 1 : -1);
+                .sort((a,b) => a.dateTime > b.dateTime ? 1 : -1)
         };
     };
 
