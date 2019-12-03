@@ -1,47 +1,33 @@
 export const createLogger = () => {
     let commonArr = [];
-    function getRecords(type){
-        return !type ? commonArr
-            //.sort((a,b) => a.dateTime > b.dateTime ? 1 : -1)
-            .map(elem => elem = elem.message) :
-            commonArr
-            .filter(elem => elem.type === type);
-            //.sort((a,b) => a.dateTime > b.dateTime ? 1 : -1);
-    }
-    function warn(string){
-        return commonArr.unshift(
-            {
-                message: string,
-                dateTime:new Date(),
-                type: "warn",
-            }
-        );
-    }
-    function error(string){
-        return commonArr.unshift(
-            {
-                message: string,
-                dateTime:new Date(),
-                type: "error",
-            }
-        );
-    }
-    function log(string){
-        return commonArr.unshift(
-            {
-                message: string,
-                dateTime:new Date(),
-                type: "log",
-            }
-        );
-    }
     return {
-        warn,
-        error,
-        log,
-        getRecords,
-    }
-};
+        warn: (string) => commonArr.unshift(
+                {
+                    message: string,
+                    dateTime:new Date(),
+                    type: "warn",
+                }),
+        error: (string) => commonArr.unshift(
+                {
+                    message: string,
+                    dateTime:new Date(),
+                    type: "error",
+                }),
+        log: (string) => commonArr.unshift(
+                {
+                    message: string,
+                    dateTime:new Date(),
+                    type: "log",
+                }),
+        getRecords: (type) => !type ? commonArr
+                //.sort((a,b) => a.dateTime > b.dateTime ? 1 : -1)
+                .map(elem => elem = elem.message) :
+                commonArr
+                .filter(elem => elem.type === type)
+                //.sort((a,b) => a.dateTime > b.dateTime ? 1 : -1);
+        };
+    };
+
 
 // let message1 = createLogger();
 
