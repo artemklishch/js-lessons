@@ -2,14 +2,14 @@ export const createLogger = () => {
     let commonArr = [];
     function getRecords(type){
         return !type ? commonArr
-            .sort((a,b) => a.dateTime > b.dateTime ? 1 : -1)
+            //.sort((a,b) => a.dateTime > b.dateTime ? 1 : -1)
             .map(elem => elem = elem.message) :
             commonArr
-            .filter(elem => elem.type === type)
-            .sort((a,b) => a.dateTime > b.dateTime ? 1 : -1);
+            .filter(elem => elem.type === type);
+            //.sort((a,b) => a.dateTime > b.dateTime ? 1 : -1);
     }
     function warn(string){
-        commonArr.push(
+        commonArr.unshift(
             {
                 message: string,
                 dateTime:new Date(),
@@ -18,7 +18,7 @@ export const createLogger = () => {
         );
     }
     function error(string){
-        commonArr.push(
+        commonArr.unshift(
             {
                 message: string,
                 dateTime:new Date(),
@@ -27,7 +27,7 @@ export const createLogger = () => {
         );
     }
     function log(string){
-        commonArr.push(
+        commonArr.unshift(
             {
                 message: string,
                 dateTime:new Date(),
