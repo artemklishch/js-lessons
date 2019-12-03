@@ -9,7 +9,7 @@ export const createLogger = () => {
             //.sort((a,b) => a.dateTime > b.dateTime ? 1 : -1);
     }
     function warn(string){
-        commonArr.unshift(
+        return commonArr.unshift(
             {
                 message: string,
                 dateTime:new Date(),
@@ -18,7 +18,7 @@ export const createLogger = () => {
         );
     }
     function error(string){
-        commonArr.unshift(
+        return commonArr.unshift(
             {
                 message: string,
                 dateTime:new Date(),
@@ -27,7 +27,7 @@ export const createLogger = () => {
         );
     }
     function log(string){
-        commonArr.unshift(
+        return commonArr.unshift(
             {
                 message: string,
                 dateTime:new Date(),
