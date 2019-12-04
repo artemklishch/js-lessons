@@ -12,6 +12,7 @@ export const timer = {
             this.secondsPassed += 5; 
             if(this.forStop === true){
                 setTimeout(() => {
+                    this.secondsPassed -= 5;
                     clearInterval(timerId);                
                 },0);
             } 
