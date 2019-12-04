@@ -1,5 +1,4 @@
 export function bind(func, context){
-    context = {...arguments};
 	return function(...args) {
 		return func.apply(context,	args);
 	}
