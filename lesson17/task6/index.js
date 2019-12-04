@@ -1,4 +1,5 @@
-export function bind(func, context){
+function bind(func, context){
+    context = {...arguments};
 	return function(...args) {
 		return func.apply(context,	args);
 	}
@@ -7,8 +8,8 @@ export function bind(func, context){
 // const a = function () {
 // 	return this;
 // }
-// const b = bind(a, {foo: 'var' });
-//console.log(b.call({name: "tom"}));
+// const b = bind(a, {foo: 'var' }, name = "tom");
+// console.log(b.call({name: "tom"}));
 // const c = bind(b, null);
 // const d = bind(c, { g: '1' });
 // console.log(c());
