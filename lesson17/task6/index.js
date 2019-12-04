@@ -1,33 +1,16 @@
-export function bind(func){
-    return function(){
-        return func.call(this, ...arguments);
-    }
+export function bind(func, context){
+	return function(...args) {
+		return func.apply(context,	args);
+	}
 }
 
+// const a = function () {
+// 	return this;
+// }
+// const b = bind(a, {foo: 'var' });
+//console.log(b.call({name: "tom"}));
+// const c = bind(b, null);
+// const d = bind(c, { g: '1' });
+// console.log(c());
+// console.log(d());
 
-
-
-// const sayHi = () => {
-//     console.log("Hi");
-// };
-
-// const sum = (a,b) => {
-//     console.log(a+b);
-// };
-
-// const user = {
-//     name: "Tom",
-//     sayHi(){
-//         console.log(`Hi. I'm ${this.name}!`);
-//     },
-// };
-
-
-// //console.log(sayHi());
-// const defferedSayHi = bind(sayHi, 2000);
-// const defferedSayHi1 = bind(sum, 2000);
-// defferedSayHi();
-// defferedSayHi1(10,10);
-
-// const defferedSayHi2 = bind(user.sayHi, 2000);
-// defferedSayHi2.call({name:"Bob"});
