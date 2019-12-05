@@ -1,17 +1,17 @@
-export function bind(func, context, args){
-    return function() {
+export function bind(func, context){
+    return function(...args) {
 		return func.apply(context,	args);
 	}
 }
 
-// const a = function () {
-// 	return this;
+// function sum(a,b){
+// 	return a + b;
 // }
-
-// const b = bind(a, {foo: 'var' });
-//  console.log(b.call({name: "tom"}));
-// const c = bind(b, null);
-// const d = bind(c, { g: '1' });
-// console.log(c());
-// console.log(d());
-
+// const obj = {
+// 	num: 2,
+// 	sum(a,b){
+// 		return a + b;
+// 	},
+// };
+// const a = bind(sum, obj);
+// console.log(a(2,2));
