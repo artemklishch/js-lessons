@@ -1,21 +1,14 @@
 export const timer = {
     secondsPassed: 0,
     minsPassed: 0,
-    forStop: false,
+    timerId:0,
     startTimer() {
-        this.forStop = false;
-        let timerId = setInterval(() => {
+        this.timerId = setInterval(() => {
             if(this.secondsPassed === 60){
                 this.minsPassed++;
                 this.secondsPassed = 0;
             }
             this.secondsPassed += 5; 
-            if(this.forStop === true){
-                setTimeout(() => {
-                    this.secondsPassed -= 5;
-                    clearInterval(timerId);                
-                },0);
-            } 
         }, 5000);
     },
     getTime(){
@@ -24,7 +17,7 @@ export const timer = {
         }else return this.minsPassed + ":" + this.secondsPassed;
     },
     stopTimer(){
-        this.forStop = true;
+        clearInterval(this.timerId);      
     },
     resetTimer(){
         this.minsPassed = 0;
