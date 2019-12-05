@@ -1,5 +1,5 @@
 {
-  "name": "lessons-js",
+  "name": "lessons",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,6 @@
     "type": "git",
     "url": "git+https://github.com/artemklishch/lessons-ls.git"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
