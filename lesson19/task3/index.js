@@ -13,7 +13,7 @@
 // user.fullName = 'Tom Hardy';
 // console.log(user.fullName);
 
-export function User(firstName, lastName){
+export default User(firstName, lastName){
     this.firstName = firstName;
     this.lastName = lastName;
 }
