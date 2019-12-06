@@ -1,17 +1,14 @@
 export function spy(func){
     let spied = function(...args){
-        spied.calls.push(args
-            .reduce((acc,elem) => {
-                return acc.concat(elem);
-            },[]));
+        spied.calls.push(args);
         return func.call(this, ...args);
     }
     spied.calls = [];
     return spied;
 }
-// function test(a, b) {
-//     return (a + b);
-// }
+function test(a, b) {
+    return (a + b);
+}
 
 // const spyTest = spy(test);
 // //spyTest.calls = [];
