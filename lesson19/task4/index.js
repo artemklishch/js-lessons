@@ -19,7 +19,10 @@ User.prototype.setAge = function(age){
     }
 };
 
-// const user1 = new User("John", 21);
+const user1 = new User("John", 21);
+//console.log(user1);
+const result = user1.sayHi();
+console.log(result);
 // user1.sayHi();
 // user1.requestNewPhoto();
 // user1.setAge(-26);
