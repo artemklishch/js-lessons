@@ -1,16 +1,23 @@
-export function spy(){
-    return function func(){
-        return func.calls.push([...arguments]
+export function spy(func){
+    return function spied(...args){
+        spied.calls.push([args]
             .reduce((acc,elem) => {
                 return acc.concat(elem);
-            },[]));      
+            },[]));
+        return func.call(this, ...args);
     }
 }
-// const myFunc = spy();
-// myFunc.calls = [];
-// myFunc(4,2);
-// myFunc(9,1);
-// console.log(myFunc.calls);
+// function test(a, b) {
+//     return (a + b);
+// }
+
+// const spyTest = spy(test);
+// spyTest.calls = [];
+// console.log(spyTest(4, 2));
+// spyTest(9, 1);
+// console.log(spyTest.calls);
+
+
 
 // const user = {
 //     name: 'John',
@@ -21,7 +28,8 @@ export function spy(){
 
 // const spyMethod = spy(user.sayHi);
 // spyMethod.calls = [];
-// spyMethod.apply({ name: 'Tom' }); // 'Tom'
+// console.log(spyMethod.apply({ name: 'Tom' })); // 'Tom'
 
-// console.log(spyMethod.calls) // [ [] ]
+// console.log(spyMethod.calls); // [ [] ]
+
 
