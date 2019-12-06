@@ -18,3 +18,6 @@ export const ship = {
     },
 };
 Object.setPrototypeOf(ship, vehicle);
+// ship.startMachine();
+// ship.stopMachine();
+// console.log(ship);
