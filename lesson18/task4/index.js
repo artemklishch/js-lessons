@@ -1,6 +1,6 @@
 export function spy(func){
     return function spied(...args){
-        spied.calls.push([args]
+        spied.calls.push(args
             .reduce((acc,elem) => {
                 return acc.concat(elem);
             },[]));
