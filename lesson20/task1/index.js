@@ -2,6 +2,7 @@ export class User{
     constructor(name,age){
         this.name = name;
         this.age = age;
+        this.constructor.createEmpty();
     }
     static createEmpty(){
         return {
@@ -30,5 +31,5 @@ export class User{
 // user1.requestNewPhoto();
 // console.log(user1.setAge(-20));
 // console.log(user1.setAge(26));
+//console.log(user1.constructor.createEmpty());
 
-// console.log(User.createEmpty());
