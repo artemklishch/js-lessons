@@ -21,8 +21,8 @@ export class Order{
     }
 }
 
-// const order1 = new Order(1500, "Kharkiv", "By");
-// console.log(order1);
+// const order1 = new Order(1500, "Kharkiv", "Buy");
+// console.log(Object.keys(order1));
 // console.log(order1.checkPrice());
 // console.log(order1.confirmOrder());
 // console.log(order1.isValidType());
