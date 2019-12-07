@@ -1,8 +1,8 @@
 export class User{
     constructor(id, name, sessionId){
-        this.id = id;
-        this.name = name;
-        this.sessionId = sessionId;
+        this.id = Object.freeze(id);
+        this.name = Object.freeze(name);
+        this.sessionId = Object.freeze(sessionId);
     }
 }
 export class UserRepository{
