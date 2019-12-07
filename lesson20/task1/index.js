@@ -25,8 +25,8 @@ export class User{
 }
 
 
-const user1 = new User();
-console.log(user1); 
+// const user1 = new User();
+// console.log(user1); 
 // user1.sayHi();
 // user1.requestNewPhoto();
 // console.log(user1.setAge(-20));
