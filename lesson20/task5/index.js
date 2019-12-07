@@ -11,7 +11,7 @@ export class UserRepository{
     }
     getUserNames(){
         return this.users
-            .map(elem => elem._name);
+            .map(elem => elem.name);
     }
     getUserIds(){
         return this.users
