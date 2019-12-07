@@ -1,13 +1,13 @@
 export class User{
-    constructor(_id, _name, _sessionId){
-        this.id = _id;
-        this.name = _name;
-        this.sessionId = _sessionId;
+    constructor(id, name, sessionId){
+        this.id = id;
+        this.name = name;
+        this.sessionId = sessionId;
     }
 }
 export class UserRepository{
-    constructor(_users){
-        this.users = Object.freeze(_users);
+    constructor(users){
+        this.users = Object.freeze(users);
     }
     getUserNames(){
         return this.users
