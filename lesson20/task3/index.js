@@ -16,6 +16,7 @@ export class Wallet{
     }
 }
 // const balance1 = new Wallet();
+// console.log(balance1);
 // balance1.deposit(100);
 // balance1.withdraw(10);
 // balance1.withdraw(110);
