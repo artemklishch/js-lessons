@@ -1,8 +1,8 @@
 export class User{
     constructor(id, name, sessionId){
-        this.id = Object.freeze(id);
-        this.name = Object.freeze(name);
-        this.sessionId = Object.freeze(sessionId);
+        this.id = id;
+        this.name = name;
+        this.sessionId = sessionId;
     }
 }
 export class UserRepository{
@@ -32,3 +32,7 @@ export class UserRepository{
 // console.log(arrayOfUsers.getUserNames());
 // console.log(arrayOfUsers.getUserIds());
 // console.log(arrayOfUsers.getUserNameById("11100000000"));
+
+
+
+
