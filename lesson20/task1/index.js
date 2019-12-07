@@ -1,6 +1,5 @@
 export class User{
     constructor(name,age){
-        if(name === undefined && age === undefined) return User.createEmpty();
         this.name = name;
         this.age = age;
     }
