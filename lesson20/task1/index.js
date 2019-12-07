@@ -17,6 +17,7 @@ export class User{
     }
     setAge(value){
         if(value < 0) return false;
+        this.age = value;
         if (this.age >= 25) this.requestNewPhoto();
         return value;
     }
