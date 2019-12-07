@@ -1,26 +1,26 @@
 export class User{
     constructor(id, name, sessionId){
-        this._id = id;
-        this._name = name;
-        this._sessionId = sessionId;
+        this.id = id;
+        this.name = name;
+        this.sessionId = sessionId;
     }
 }
 export class UserRepository{
     constructor(users){
-        this._users = Object.freeze(users);
+        this.users = Object.freeze(users);
     }
     getUserNames(){
-        return this._users
-            .map(elem => elem._name);
+        return this.users
+            .map(elem => elem.name);
     }
     getUserIds(){
-        return this._users
-            .map(elem => elem._id);
+        return this.users
+            .map(elem => elem.id);
     }
     getUserNameById(id){        
-       return this._users
-            .filter(elem => elem._id === id)
-            .map(elem => elem._name)[0];
+       return this.users
+            .filter(elem => elem.id === id)
+            .map(elem => elem.name)[0];
     }
 }
 
