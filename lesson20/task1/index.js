@@ -1,14 +1,14 @@
 export class User{
     constructor(name,age){
+        if(name === undefined && age === undefined) return User.createEmpty();
         this.name = name;
         this.age = age;
-        this.constructor.createEmpty();
     }
     static createEmpty(){
-        return {
-            name: "",
-            age: "",
-        }
+            return {
+                name: "",
+                age: "",
+            }
     }
     sayHi(){
         console.log(`Hi, I am ${this.name}`);
@@ -25,8 +25,8 @@ export class User{
 }
 
 
-// const user1 = new User("Tom", 27);
-// console.log(user1); 
+const user1 = new User();
+console.log(user1); 
 // user1.sayHi();
 // user1.requestNewPhoto();
 // console.log(user1.setAge(-20));
