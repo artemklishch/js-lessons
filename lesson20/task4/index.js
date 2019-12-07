@@ -1,4 +1,4 @@
-class Order{
+export class Order{
     isConfirmed = false;
     constructor(price, city, type){
         this.price = price;
