@@ -1,25 +1,25 @@
 export class User{
     constructor(id, name, sessionId){
-        this._id = id;
-        this._name = name;
-        this._sessionId = sessionId;
+        this.id = id;
+        this.name = name;
+        this.sessionId = sessionId;
     }
     get getId(){
-        return this._id;
+        return this.id;
     }
     get getUserName(){
-        return this._name;
+        return this.name;
     }
     get getSessionId(){
-        return this._sessionId;
+        return this.sessionId;
     }
 }
 export class UserRepository{
     constructor(users){
-        this._users = Object.freeze(users);
+        this.users = Object.freeze(users);
     }
     get getUsersArray(){
-        return this._users;
+        return this.users;
     }
     getUserNames(){
         return this.getUsersArray
