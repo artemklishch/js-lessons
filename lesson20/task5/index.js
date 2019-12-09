@@ -23,7 +23,7 @@ export class UserRepository{
     }
     getUserNames(){
         return this.usersArray
-            .map(elem => elem.name);
+            .map(elem => elem.userName);
     }
     getUserIds(){
         return this.usersArray
