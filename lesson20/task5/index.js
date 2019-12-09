@@ -18,19 +18,19 @@ export class UserRepository{
     constructor(users){
         this._users = Object.freeze(users);
     }
-    get usersArray(){
+    get users(){
         return this._users;
     }
     getUserNames(){
-        return this.usersArray
+        return this.users
             .map(elem => elem.name);
     }
     getUserIds(){
-        return this.usersArray
+        return this.users
             .map(elem => elem.id);
     }
     getUserNameById(id){        
-       return this.usersArray
+       return this.users
             .filter(elem => elem.id === id)
             .map(elem => elem.name)[0];
     }
