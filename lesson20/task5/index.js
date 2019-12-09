@@ -18,22 +18,23 @@ export class UserRepository{
     constructor(users){
         this._users = Object.freeze(users);
     }
+    get usersArray(){
+        return this._users;
+    }
     getUserNames(){
-        return this.getUsersArray
+        return this.usersArray
             .map(elem => elem.getUserName);
     }
     getUserIds(){
-        return this.getUsersArray
+        return this.usersArray
             .map(elem => elem.getId);
     }
     getUserNameById(id){        
-       return this.getUsersArray
+       return this.usersArray
             .filter(elem => elem.getId === id)
             .map(elem => elem.getUserName)[0];
     }
-    get getUsersArray(){
-        return this._users;
-    }
+    
 }
 
 // const user1 = new User("11100000000", "Tomasso Campanella", "session 1");
