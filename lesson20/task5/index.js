@@ -4,13 +4,13 @@ export class User{
         this._name = name;
         this._sessionId = sessionId;
     }
-    get getId(){
+    get id(){
         return this._id;
     }
-    get getUserName(){
+    get name(){
         return this._name;
     }
-    get getSessionId(){
+    get sessionId(){
         return this._sessionId;
     }
 }
@@ -23,16 +23,16 @@ export class UserRepository{
     }
     getUserNames(){
         return this.usersArray
-            .map(elem => elem.getUserName);
+            .map(elem => elem.name);
     }
     getUserIds(){
         return this.usersArray
-            .map(elem => elem.getId);
+            .map(elem => elem.id);
     }
     getUserNameById(id){        
        return this.usersArray
-            .filter(elem => elem.getId === id)
-            .map(elem => elem.getUserName)[0];
+            .filter(elem => elem.id === id)
+            .map(elem => elem.name)[0];
     }
     
 }
@@ -45,7 +45,7 @@ export class UserRepository{
 // console.log(arrayOfUsers.getUserNames());
 // console.log(arrayOfUsers.getUserIds());
 // console.log(arrayOfUsers.getUserNameById("11100000000"));
-// console.log(user1.getId);
+// console.log(user1.id);
 
 
 
