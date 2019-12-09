@@ -1,17 +1,17 @@
 export class User{
     constructor(id, name, sessionId){
-        this.id = id;
-        this.name = name;
-        this.sessionId = sessionId;
+        this._id = id;
+        this._name = name;
+        this._sessionId = sessionId;
     }
     get getId(){
-        return this.id;
+        return this._id;
     }
     get getUserName(){
-        return this.name;
+        return this._name;
     }
     get getSessionId(){
-        return this.sessionId;
+        return this._sessionId;
     }
 }
 export class UserRepository{
@@ -36,15 +36,15 @@ export class UserRepository{
     }
 }
 
-// const user1 = new User("11100000000", "Tomasso Campanella", "session 1");
-// const user2 = new User("11777777777", "Leonardo", "session 2");
-// let arr = [user1, user2];
-// const arrayOfUsers = new UserRepository(arr);
-// console.log(arrayOfUsers);
-// console.log(arrayOfUsers.getUserNames());
-// console.log(arrayOfUsers.getUserIds());
-// console.log(arrayOfUsers.getUserNameById("11100000000"));
-// console.log(user1.getId);
+const user1 = new User("11100000000", "Tomasso Campanella", "session 1");
+const user2 = new User("11777777777", "Leonardo", "session 2");
+let arr = [user1, user2];
+const arrayOfUsers = new UserRepository(arr);
+console.log(arrayOfUsers);
+console.log(arrayOfUsers.getUserNames());
+console.log(arrayOfUsers.getUserIds());
+console.log(arrayOfUsers.getUserNameById("11100000000"));
+console.log(user1.getId);
 
 
 
