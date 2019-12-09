@@ -18,6 +18,7 @@ body{
     padding: 8px;
     max-width: 600px;
     margin: auto;
+    overflow: hidden;
 }
 .list{
     margin: 0;
