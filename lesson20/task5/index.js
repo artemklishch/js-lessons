@@ -16,9 +16,11 @@ export class User{
 }
 export class UserRepository{
     constructor(users){
-        this.users = Object.freeze(users);
+        this._users = Object.freeze(users);
     }
-    
+    get getUsersArray(){
+        return this._users;
+    }
     getUserNames(){
         return this.getUsersArray
             .map(elem => elem.getUserName);
@@ -31,9 +33,6 @@ export class UserRepository{
        return this.getUsersArray
             .filter(elem => elem.getId === id)
             .map(elem => elem.getUserName)[0];
-    }
-    get getUsersArray(){
-        return this.users;
     }
 }
 
