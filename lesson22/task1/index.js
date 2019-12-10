@@ -18,6 +18,13 @@ const logGreyDiv = logTarget.bind(null, 'DIV', 'grey');
 const logGreyP = logTarget.bind(null, 'P', 'grey');
 const logGreySPAN = logTarget.bind(null, 'SPAN', 'grey');
 
+logGreyDiv();
+logGreyP();
+logGreySPAN();
+logGreenDiv();
+logGreenP();
+logGreenSPAN();
+
 const clearBtnFunc = () => {
     const eventsListElem = document.querySelector('.events-list'); 
     eventsListElem.innerHTML = '';
