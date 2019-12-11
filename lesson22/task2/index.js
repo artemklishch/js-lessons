@@ -1,10 +1,10 @@
 //start code
 const tasks = [
     { text: 'Buy milk', done: false },
-    { text: 'Pick up Tom from airport', done: false },
-    { text: 'Visit party', done: false },
-    { text: 'Visit doctor', done: true },
-    { text: 'Buy meat', done: true },
+    { text: 'Pick up Tom from airport'},
+    { text: 'Visit party', done: false},
+    { text: 'Visit doctor', done: true},
+    { text: 'Buy meat', done: true},
 ];
 const renderListItems = listItems => {
     const listElem = document.querySelector('.list');
@@ -14,6 +14,7 @@ const renderListItems = listItems => {
         .map(({ text, done }) => {
             const listItemElem = document.createElement('li');
             listItemElem.classList.add('list__item');
+            listItemElem.setAttribute('id', Math.random(0) + Math.random());
             if (done) {
                 listItemElem.classList.add('list__item_done');
             }
@@ -32,19 +33,15 @@ renderListItems(tasks);
 
 const taskInput = document.querySelector('.task-input');
 const createTaskBtn = document.querySelector('.create-task-btn');
-const renderAdditionalListItems = addotionalListItem => {
-    const listElem = document.querySelector('.list');
-    const newItem = document.createElement('li');
-    newItem.classList.add('list__item');
-    newItem.done = false;
-    const checkboxElem = document.createElement('input');
-    checkboxElem.setAttribute('type', 'checkbox');
-    checkboxElem.classList.add('list__item-checkbox');
-    checkboxElem.onchange = func;
-    newItem.append(checkboxElem, addotionalListItem);
-    listElem.prepend(newItem);
+const renderAdditionalListItems = additionalListItem => {
+    const allListItems = document.getElementsByTagName('li');
+    [...allListItems].forEach(elem => elem.remove());
+    const tempObj = {};
+    tempObj.text = additionalListItem;
+    tempObj.done = false;
+    tasks.push(tempObj);
     taskInput.value = '';
-    tasks.push(newItem);
+    renderListItems(tasks);
 };
 createTaskBtn.addEventListener('click', function () {
     if (taskInput.value !== "") return renderAdditionalListItems(taskInput.value);
@@ -53,7 +50,21 @@ createTaskBtn.addEventListener('click', function () {
 
 function func() {
     const closest = this.closest('li');
-    closest.classList.toggle('list__item_done');
+    //closest.classList.toggle('list__item_done');
+    if(closest.done === false){
+        closest.done = true;
+    }else closest.done = false;   
+    let tempProp = closest.id;
+    const allListItems = document.getElementsByTagName('li');
+    for(let i = 0; i < [...allListItems].length; i++){
+        if(allListItems[i].id === tempProp){
+            tasks[i].done = true;
+            allListItems[i].classList.toggle('list__item_done');
+        }
+    }
+    [...allListItems].forEach(elem => elem.remove());
+    
+    renderListItems(tasks);
 }
 
 
