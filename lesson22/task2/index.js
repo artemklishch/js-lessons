@@ -50,21 +50,13 @@ createTaskBtn.addEventListener('click', function () {
 
 function func() {
     const closest = this.closest('li');
-    //closest.classList.toggle('list__item_done');
+    closest.classList.toggle('list__item_done');
     if(closest.done === false){
         closest.done = true;
     }else closest.done = false;   
-    let tempProp = closest.id;
-    const allListItems = document.getElementsByTagName('li');
-    for(let i = 0; i < [...allListItems].length; i++){
-        if(allListItems[i].id === tempProp){
-            tasks[i].done = true;
-            allListItems[i].classList.toggle('list__item_done');
-        }
-    }
-    [...allListItems].forEach(elem => elem.remove());
+    //let tempProp = closest.id;
     
-    renderListItems(tasks);
+    //renderListItems(tasks);
 }
 
 
