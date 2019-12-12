@@ -26,13 +26,13 @@ const getSectorLines = () => {
 
 const arenaElem = document.querySelector('.arena');
 const renderArena = () => {
-    const lineString = getSectorLines();
+    const linesString = getSectorLines();
     const sectorsString = generateNumbersRange(1,3)
         .map(sectorNumber => `
             <div 
             class="sector" 
             data-sector-number="${sectorNumber}"
-            >${lineString}
+            >${linesString}
             </div>
         `).join('');
     arenaElem.innerHTML = sectorsString;
@@ -51,4 +51,4 @@ const onSeatSelect = event => {
     selectedSeatElem.textContent = `S ${sectorNumber} - L ${lineNumber} - S ${seatNumber}`;
 };
 arenaElem.addEventListener('click', onSeatSelect);
-//renderArena();
+renderArena();
