@@ -15,9 +15,6 @@ form{
    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
    margin: auto;
 }
-.form-control{
-    margin-bottom: 8px;
-}
 .form-title{
    text-align: center;
    text-transform: uppercase;
@@ -36,6 +33,7 @@ form{
    border: 1px solid #808080;
    padding: 4px;
    outline: none;
+   margin-bottom: 8px;
 }
 .form-input:invalid{
    border: 3px solid #ff0000;
