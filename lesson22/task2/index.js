@@ -116,7 +116,10 @@ createTaskBtn.addEventListener('click', function () {
 const onChangeFunk = event => {
     const activeLi = event.target.closest('li');
     activeLi.classList.toggle('list__item_done');
-    const activeLiId = activeLi.id;
+    toSortElems();
+};
+const toSortElems = () => {
+    const activeLiId = event.target.closest('li').id;
     tasks.forEach(elem => {
         if(elem.id === activeLiId && elem.done === false){
             elem.done = true; 
