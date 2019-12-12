@@ -51,12 +51,14 @@ createTaskBtn.addEventListener('click', function () {
 function func() {
     const closest = this.closest('li');
     closest.classList.toggle('list__item_done');
-    if(closest.done === false){
-        closest.done = true;
-    }else closest.done = false;   
-    //let tempProp = closest.id;
-    
-    //renderListItems(tasks);
+    const allListItems = document.getElementsByTagName('li');
+    for(let i = 0; i < [...allListItems].length; i++){
+        if(allListItems[i].matches('.list__item_done')){
+                tasks[i].done = true;
+            }else  tasks[i].done = false;   
+        }
+    [...allListItems].forEach(elem => elem.remove());
+    renderListItems(tasks);
 }
 
 
