@@ -35,10 +35,6 @@ form{
    padding: 4px;
    outline: none;
 }
-
-#password{
-   margin-bottom: 8px;
-}
 .form-input:invalid{
    border: 3px solid #ff0000;
 }
@@ -47,7 +43,7 @@ form{
    height: 32px;
    text-transform: uppercase;
    border-radius: 4px;
-   margin-top: 16px;
+   margin-top: 24px;
    background-color: #ff7f50;
    color: white;
 }
