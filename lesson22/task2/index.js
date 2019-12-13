@@ -98,10 +98,10 @@ renderListItems(tasks);
 
 const taskInput = document.querySelector('.task-input');
 const createTaskBtn = document.querySelector('.create-task-btn');
-const renderAdditionalListItems = additionalListItem => {
+const addItem = newItem => {
     listElem.innerHTML = '';
     const tempObj = {};
-    tempObj.text = additionalListItem;
+    tempObj.text = newItem;
     tempObj.done = false;
     tempObj.id = Math.random().toFixed(10);
     tasks.push(tempObj);
@@ -109,7 +109,7 @@ const renderAdditionalListItems = additionalListItem => {
     renderListItems(tasks);
 };
 createTaskBtn.addEventListener('click', function () {
-    if (taskInput.value !== "") return renderAdditionalListItems(taskInput.value);
+    if (taskInput.value !== "") return newItem(taskInput.value);
 });
 
 
