@@ -5,4 +5,4 @@ const formatter = new Intl.DateTimeFormat('en', {
     minute: '2-digit',
     hour12: false,
 });
-//console.log(getGreenwichTime(new Date(2019,0,1,4,30)));
+//console.log(getGreenwichTime(new Date(2019,0,1,4,32,12)));
