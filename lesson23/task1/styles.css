@@ -12,7 +12,7 @@ form{
    width: 300px;
    background-color: aqua;
    padding: 16px;
-   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+   box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
    margin: auto;
 }
 .form-title{
@@ -20,7 +20,7 @@ form{
    text-transform: uppercase;
 }
 .form-control{
-   margin-bottom: 4px;
+   margin-bottom: 8px;
 }
 .form-label{
    display: block;
@@ -42,7 +42,7 @@ form{
    height: 32px;
    text-transform: uppercase;
    border-radius: 4px;
-   margin-top: 20px;
+   margin-top: 16px;
    background-color: #ff7f50;
    color: white;
 }
