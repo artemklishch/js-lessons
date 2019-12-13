@@ -79,13 +79,13 @@ const renderListItems = listItems => {
         .map(({ text, done, id}) => {
             const listItemElem = document.createElement('li');
             listItemElem.classList.add('list__item');
-            listItemElem.setAttribute('id', id);
             if (done) {
                 listItemElem.classList.add('list__item_done');
             }
             const checkboxElem = document.createElement('input');
             checkboxElem.setAttribute('type', 'checkbox');
             checkboxElem.checked = done;
+            checkboxElem.setAttribute('id', id);
             checkboxElem.classList.add('list__item-checkbox');
             listItemElem.append(checkboxElem, text);
             return listItemElem;
@@ -114,19 +114,15 @@ createTaskBtn.addEventListener('click', function () {
 
 
 const onChangeFunk = event => {
-    const activeLi = event.target.closest('li');
-    activeLi.classList.toggle('list__item_done');
+    const isCheckbox = event.target.classList.contains('list__item-checkbox');
+    if (!isCheckbox) {
+        return;
+    }
+    const taskData = tasks.find(task => task.id === event.target.id);
+    Object.assign(taskData, { done: event.target.checked });
     toSortElems();
 };
 const toSortElems = () => {
-    const activeLiId = event.target.closest('li').id;
-    tasks.forEach(elem => {
-        if(elem.id === activeLiId && elem.done === false){
-            elem.done = true; 
-        } else if(elem.id === activeLiId && elem.done === true){
-            elem.done = false; 
-        }
-    })
     listElem.innerHTML = '';
     renderListItems(tasks);
 };
