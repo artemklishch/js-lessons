@@ -12,6 +12,8 @@
     flex-direction: column;
     background-color: coral;
     margin: 16px;
+    width: 200px;
+    height: 200px;
 }
 .sector__line{
     display: flex;
