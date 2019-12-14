@@ -2,7 +2,7 @@
 //     const months = ['Jan', 'Fab', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 //     let tempArr = [];
 //     students
-//         .sort((a,b) => a.birthDate > b.birthDate ? 1 : -1)
+//         .sort((a,b) => a.birthDate < b.birthDate ? 1 : -1)
 //         .map(elem => {
 //             let tempObj = {};
 //             tempObj.name = elem.name;
@@ -37,7 +37,7 @@
 //     for(let i = 0; i < months.length; i++){
 //         let arr = [];
 //         incomingArray
-//         .sort((a,b) => a.birthDate > b.birthDate ? 1 : -1)
+//         .sort((a,b) => a.birthDate < b.birthDate ? 1 : -1)
 //         .forEach(elem => {
 //             if(i === new Date(elem.birthDate).getMonth()){
 //                 arr.push(elem.name);
@@ -53,7 +53,7 @@
 export const studentsBirthDays = students => {
     const obj = {};
     let [...incomingArray] = students;
-    incomingArray.sort((a,b) => a.birthDate > b.birthDate ? 1 : -1);
+    incomingArray.sort((a,b) => a.birthDate < b.birthDate ? 1 : -1);
     ['Jan', 'Fab', 'Mar', 'Apr', 'May', 'Jun', 'Jul',
      'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].forEach((element,index) => {
         let arr = [];
@@ -67,11 +67,11 @@ export const studentsBirthDays = students => {
     return obj;
 };
 
-// const arr = [
-//     { name: 'Tom', birthDate: '02/15/2010' },
-//     { name: 'Ben', birthDate: '02/10/2010' },
-//     { name: 'Sam', birthDate: '03/15/2010' },
-//     { name: 'Sammy', birthDate: '02/14/2010' } 
-// ];
-// console.log(studentsBirthDays(arr));
-// console.log(arr);
+const arr = [
+    { name: 'Tom', birthDate: '02/15/2010' },
+    { name: 'Ben', birthDate: '02/10/2010' },
+    { name: 'Sam', birthDate: '03/15/2010' },
+    { name: 'Sammy', birthDate: '02/14/2010' } 
+];
+console.log(studentsBirthDays(arr));
+console.log(arr);
