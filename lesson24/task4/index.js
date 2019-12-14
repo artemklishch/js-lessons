@@ -67,11 +67,11 @@ export const studentsBirthDays = students => {
     return obj;
 };
 
-const arr = [
-    { name: 'Tom', birthDate: '02/15/2010' },
-    { name: 'Ben', birthDate: '02/10/2010' },
-    { name: 'Sam', birthDate: '03/15/2010' },
-    { name: 'Sammy', birthDate: '02/14/2010' } 
-];
-console.log(studentsBirthDays(arr));
-console.log(arr);
+// const arr = [
+//     { name: 'Tom', birthDate: '02/15/2010' },
+//     { name: 'Ben', birthDate: '02/10/2010' },
+//     { name: 'Sam', birthDate: '03/15/2010' },
+//     { name: 'Sammy', birthDate: '02/14/2010' } 
+// ];
+// console.log(studentsBirthDays(arr));
+// console.log(arr);
