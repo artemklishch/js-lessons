@@ -32,18 +32,16 @@
 
 // export const studentsBirthDays = students => {
 //     const months = ['Jan', 'Fab', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];    
+//     let [...incomingArray] = students;
 //     let obj = {};
 //     for(let i = 0; i < months.length; i++){
 //         let arr = [];
-//         students
+//         incomingArray
 //         .sort((a,b) => a.birthDate > b.birthDate ? 1 : -1)
 //         .forEach(elem => {
 //             if(i === new Date(elem.birthDate).getMonth()){
 //                 arr.push(elem.name);
-//                 for(let prop in elem){
-//                     prop = months[i];
-//                     obj[prop] = arr;
-//                 }
+//                 obj[element] = arr; 
 //             }   
 //         });
 //     }
@@ -53,23 +51,19 @@
 
 
 export const studentsBirthDays = students => {
-   const obj = {};
-    ['Jan', 'Fab', 'Mar', 'Apr', 'May', 'Jun',
-     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-        .forEach((element,index) => {
-            let arr = [];
-            students
-            .sort((a,b) => a.birthDate > b.birthDate ? 1 : -1)
-            .forEach(elem => {
-                if(index === new Date(elem.birthDate).getMonth()){
-                    arr.push(elem.name);
-                    for(let prop in elem){
-                        prop = element;
-                        obj[prop] = arr;
-                    }
-                }   
-            });
-        });    
+    const obj = {};
+    let [...incomingArray] = students;
+    incomingArray.sort((a,b) => a.birthDate > b.birthDate ? 1 : -1);
+    ['Jan', 'Fab', 'Mar', 'Apr', 'May', 'Jun', 'Jul',
+     'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].forEach((element,index) => {
+        let arr = [];
+        incomingArray.forEach(elem => {
+            if(index === new Date(elem.birthDate).getMonth()){
+                arr.push(elem.name);
+                obj[element] = arr;
+            }   
+        });
+    });    
     return obj;
 };
 
@@ -80,3 +74,4 @@ export const studentsBirthDays = students => {
 //     { name: 'Sammy', birthDate: '02/14/2010' } 
 // ];
 // console.log(studentsBirthDays(arr));
+// console.log(arr);
