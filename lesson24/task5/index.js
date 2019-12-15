@@ -1,14 +1,15 @@
 
 const tasks = [
-    { text: 'Buy milk', done: false, id: Math.random().toFixed(10)},
-    { text: 'Pick up Tom from airport', done: false, id: Math.random().toFixed(10)},
-    { text: 'Visit party', done: false, id: Math.random().toFixed(10)},
-    { text: 'Visit doctor', done: true, id: Math.random().toFixed(10)},
-    { text: 'Buy meat', done: true, id: Math.random().toFixed(10)},
+    { text: 'Buy milk', done: false, id: Math.random().toFixed(10), createDate:new Date()},
+    { text: 'Pick up Tom from airport', done: false, id: Math.random().toFixed(10), createDate:new Date()},
+    { text: 'Visit party', done: false, id: Math.random().toFixed(10), createDate:new Date()},
+    { text: 'Visit doctor', done: true, id: Math.random().toFixed(10), createDate:new Date()},
+    { text: 'Buy meat', done: true, id: Math.random().toFixed(10), createDate:new Date()},
 ];
 const listElem = document.querySelector('.list');
 const renderListItems = listItems => {
     const listItemsElems = listItems
+        .sort((a,b) => b.createDate - a.createDate)
         .sort((a, b) => a.done - b.done)
         .map(({ text, done, id}) => {
             const listItemElem = document.createElement('li');
@@ -24,7 +25,7 @@ const renderListItems = listItems => {
             listItemElem.append(checkboxElem, text);
             return listItemElem;
         });
-        listElem.append(...listItemsElems);
+    listElem.append(...listItemsElems);
 };
 renderListItems(tasks);
 
@@ -38,6 +39,7 @@ const addItem = newItem => {
     tempObj.text = newItem;
     tempObj.done = false;
     tempObj.id = Math.random().toFixed(10);
+    tempObj.createDate = new Date();
     tasks.push(tempObj);
     taskInput.value = '';
     renderListItems(tasks);
@@ -47,7 +49,7 @@ createTaskBtn.addEventListener('click', function () {
 });
 
 
-const onChangeFunk = event => {
+const onChangeFunc = event => {
     const isCheckbox = event.target.classList.contains('list__item-checkbox');
     if (!isCheckbox) {
         return;
@@ -61,7 +63,7 @@ const toSortElems = () => {
     renderListItems(tasks);
 };
 
-listElem.addEventListener('change', onChangeFunk);
+listElem.addEventListener('change', onChangeFunc);
 
 
 
