@@ -109,7 +109,7 @@ const addItem = newItem => {
     renderListItems(tasks);
 };
 createTaskBtn.addEventListener('click', function () {
-    if (taskInput.value !== "") return newItem(taskInput.value);
+    if (taskInput.value !== "") return addItem(taskInput.value);
 });
 
 
