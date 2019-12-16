@@ -15,13 +15,13 @@ export const getDiff = (startDate, endDate) => {
 
 
     const deff = Math.abs(endDate - startDate);
-    const days = parseInt(deff/1000/60/60/24);
+    const days = Math.trunc(deff/1000/60/60/24);
     let tempDeffVal = deff/1000/60/60/24;
-    const hours = parseInt((tempDeffVal - days)*60);
+    const hours = Math.trunc((tempDeffVal - days)*60);
     tempDeffVal = (tempDeffVal - days)*60;
-    const minutes = parseInt((tempDeffVal - hours)*60);
+    const minutes = Math.trunc((tempDeffVal - hours)*60);
     tempDeffVal = (tempDeffVal - hours)*60;
-    const seconds = parseInt(((tempDeffVal*60) - minutes)*100);
+    const seconds = Math.trunc(( tempDeffVal - minutes)*100);
     return `${days}d ${hours}h ${minutes}m ${seconds}s`;
 
 };
