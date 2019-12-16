@@ -50,42 +50,25 @@
 
 
 
-// export const studentsBirthDays = students => {
-//     const obj = {};
-//     const months = ['Jan', 'Fab', 'Mar', 'Apr', 'May', 'Jun', 'Jul',
-//     'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-//     let [...incomingArray] = students;
-//     incomingArray.sort((a,b) => a.birthDate < b.birthDate ? 1 : -1);
-//     months.forEach((element,index) => {
-//         let arr = [];
-//         incomingArray.forEach(elem => {
-//             if(index === new Date(elem.birthDate).getMonth()){
-//                 arr.push(elem.name);
-//                 obj[element] = arr;
-//             }   
-//         });
-//     });    
-//     return obj;
-// };
-
 export const studentsBirthDays = students => {
-    let obj = {};
+    const obj = {};
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul',
     'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     let [...incomingArray] = students;
     incomingArray.sort((a,b) => a.birthDate < b.birthDate ? 1 : -1);
     months.forEach((element,index) => {
-        let tempArr = [];
-        tempArr = incomingArray
-            .map(elem => {
-                if(new Date(elem.birthDate).getMonth() === index){
-                    tempArr.push(elem.name);
-                    obj[element] = tempArr;
-                }
-            });
-    });
+        let arr = [];
+        incomingArray.forEach(elem => {
+            if(index === new Date(elem.birthDate).getMonth()){
+                arr.push(elem.name);
+                obj[element] = arr;
+            }   
+        });
+    });    
     return obj;
 };
+
+
 // const birthDate = '02/15/2010';
 // const a = new Date(birthDate);
 // console.log(a.toString().split(' ')[1]);
