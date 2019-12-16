@@ -52,10 +52,11 @@
 
 export const studentsBirthDays = students => {
     const obj = {};
+    const months = ['Jan', 'Fab', 'Mar', 'Apr', 'May', 'Jun', 'Jul',
+    'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     let [...incomingArray] = students;
     incomingArray.sort((a,b) => a.birthDate < b.birthDate ? 1 : -1);
-    ['Jan', 'Fab', 'Mar', 'Apr', 'May', 'Jun', 'Jul',
-     'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].forEach((element,index) => {
+    months.forEach((element,index) => {
         let arr = [];
         incomingArray.forEach(elem => {
             if(index === new Date(elem.birthDate).getMonth()){
