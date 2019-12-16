@@ -25,4 +25,4 @@ export const getDiff = (startDate, endDate) => {
     return `${days}d ${hours}h ${minutes}m ${seconds}s`;
 
 };
-console.log(getDiff(new Date(2019,2,5,4,30,20), new Date(2019,2,20,3,25,12)));
+//console.log(getDiff(new Date(2019,2,5,4,30,20), new Date(2019,2,20,3,25,12)));
