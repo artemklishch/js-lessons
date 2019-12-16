@@ -70,7 +70,7 @@
 
 export const studentsBirthDays = students => {
     let obj = {};
-    const months = ['Jan', 'Fab', 'Mar', 'Apr', 'May', 'Jun', 'Jul',
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul',
     'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     let [...incomingArray] = students;
     incomingArray.sort((a,b) => a.birthDate < b.birthDate ? 1 : -1);
@@ -86,6 +86,9 @@ export const studentsBirthDays = students => {
     });
     return obj;
 };
+// const birthDate = '02/15/2010';
+// const a = new Date(birthDate);
+// console.log(a.toString().split(' ')[1]);
 
 
 
