@@ -9,8 +9,8 @@ const tasks = [
 const listElem = document.querySelector('.list');
 const renderListItems = listItems => {
     const listItemsElems = listItems
-    .reverse()
-        //.sort((a,b) => a.createDate < b.createDate ? 1 : -1)
+        .reverse()
+        .sort((a,b) => a.createDate < b.createDate ? 1 : -1)
         .sort((a, b) => a.done - b.done)
         .map(({ text, done, id}) => {
             const listItemElem = document.createElement('li');
