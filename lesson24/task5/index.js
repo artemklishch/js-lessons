@@ -1,15 +1,16 @@
 
 const tasks = [
-    { text: 'Visit party', done: false, id: Math.random().toFixed(10), createDate:new Date()},
-    { text: 'Pick up Tom from airport', done: false, id: Math.random().toFixed(10), createDate:new Date()},
     { text: 'Buy milk', done: false, id: Math.random().toFixed(10), createDate:new Date()},
-    { text: 'Buy meat', done: true, id: Math.random().toFixed(10), createDate:new Date()},
+    { text: 'Pick up Tom from airport', done: false, id: Math.random().toFixed(10), createDate:new Date()},
+    { text: 'Visit party', done: false, id: Math.random().toFixed(10), createDate:new Date()},
     { text: 'Visit doctor', done: true, id: Math.random().toFixed(10), createDate:new Date()},
+    { text: 'Buy meat', done: true, id: Math.random().toFixed(10), createDate:new Date()},
 ];
 const listElem = document.querySelector('.list');
 const renderListItems = listItems => {
     const listItemsElems = listItems
-        .sort((a,b) => a.createDate < b.createDate ? 1 : -1)
+    .reverse()
+        //.sort((a,b) => a.createDate < b.createDate ? 1 : -1)
         .sort((a, b) => a.done - b.done)
         .map(({ text, done, id}) => {
             const listItemElem = document.createElement('li');
