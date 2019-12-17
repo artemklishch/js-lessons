@@ -42,9 +42,7 @@ const onFormSubmit = event => {
     event.preventDefault();
     const obj = {};
     [...new FormData(formElem)]
-        .forEach(elem => {
-            obj[elem[0]] = elem[1];
-        });
+        .forEach(elem => obj[elem[0]] = elem[1]);
     alert(JSON.stringify(obj));
 }; 
 formElem.addEventListener('submit', onFormSubmit);
