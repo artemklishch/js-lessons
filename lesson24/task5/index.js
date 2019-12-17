@@ -1,16 +1,14 @@
 
 const tasks = [
-    { text: 'Buy milk', done: false, id: Math.random().toFixed(10), createDate:new Date()},
-    { text: 'Pick up Tom from airport', done: false, id: Math.random().toFixed(10), createDate:new Date()},
-    { text: 'Visit party', done: false, id: Math.random().toFixed(10), createDate:new Date()},
-    { text: 'Visit doctor', done: true, id: Math.random().toFixed(10), createDate:new Date()},
-    { text: 'Buy meat', done: true, id: Math.random().toFixed(10), createDate:new Date()},
+    { text: 'Buy milk', done: false, id: Math.random().toFixed(10), createdDate:new Date()},
+    { text: 'Pick up Tom from airport', done: false, id: Math.random().toFixed(10), createdDate:new Date()},
+    { text: 'Visit party', done: false, id: Math.random().toFixed(10), createdDate:new Date()},
+    { text: 'Visit doctor', done: true, id: Math.random().toFixed(10), createdDate:new Date()},
+    { text: 'Buy meat', done: true, id: Math.random().toFixed(10), createdDate:new Date()},
 ];
 const listElem = document.querySelector('.list');
 const renderListItems = listItems => {
     const listItemsElems = listItems
-        .reverse()
-        .sort((a,b) => a.createDate < b.createDate ? 1 : -1)
         .sort((a, b) => a.done - b.done)
         .map(({ text, done, id}) => {
             const listItemElem = document.createElement('li');
@@ -26,7 +24,16 @@ const renderListItems = listItems => {
             listItemElem.append(checkboxElem, text);
             return listItemElem;
         });
-    listElem.append(...listItemsElems);
+    const tempNoDoneList = listItemsElems
+        .filter(elem => !elem.classList.contains('list__item_done'))
+        .reverse();
+    const tempDoneList = listItemsElems
+        .filter(elem => elem.classList.contains('list__item_done'));
+    // console.log(tempNoDoneList);
+    // console.log(tempDoneList);
+    //listElem.append(...listItemsElems);
+    listElem.append(...tempNoDoneList);
+    listElem.append(...tempDoneList);
 };
 renderListItems(tasks);
 
