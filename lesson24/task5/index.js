@@ -29,8 +29,6 @@ const renderListItems = listItems => {
         .reverse();
     const tempDoneList = listItemsElems
         .filter(elem => elem.classList.contains('list__item_done'));
-    // console.log(tempNoDoneList);
-    // console.log(tempDoneList);
     //listElem.append(...listItemsElems);
     listElem.append(...tempNoDoneList);
     listElem.append(...tempDoneList);
