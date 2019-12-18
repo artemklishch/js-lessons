@@ -39,9 +39,7 @@ const tasks = [
 const listElem = document.querySelector('.list');
 const renderListItems = listItems => {
     const listItemsElems = listItems
-        //.sort((a, b) => b.createdDate > a.createdDate ? 1 : -1)   
         .sort((a, b) => a.done - b.done)
-        //.sort((a, b) => a.completedDate < b.completedDate ? 1 : -1)    
         .map(({ text, done, id }) => {
             const listItemElem = document.createElement('li');
             listItemElem.classList.add('list__item');
@@ -60,7 +58,8 @@ const renderListItems = listItems => {
         .filter(elem => !elem.classList.contains('list__item_done'))
         .sort((a, b) => b.createdDate > a.createdDate ? 1 : -1);
     const tempDoneList = listItemsElems
-        .filter(elem => elem.classList.contains('list__item_done'));
+        .filter(elem => elem.classList.contains('list__item_done'))
+        .sort((a, b) => a.completedDate - b.completedDate);
     //listElem.append(...listItemsElems);
     listElem.append(...tempNoDoneList);
     listElem.append(...tempDoneList);
