@@ -21,7 +21,7 @@ export const createLogger = () => {
                     }),
         getRecords: (type) => !type ? commonArr
                 .sort((a,b) => a.dateTime > b.dateTime ? 1 : -1)
-                .filter(elem => elem = elem.message) :
+                .map(elem => elem = elem.message) :
                 commonArr
                 .filter(elem => elem.type === type),
 
