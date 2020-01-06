@@ -30,9 +30,12 @@ export class UserRepository{
             .map(elem => elem.id);
     }
     getUserNameById(id){        
-       return this.users
-            .filter(elem => elem.id === id)
-            .map(elem => elem.name)[0];
+    //    return this.users
+    //         .filter(elem => elem.id === id)
+    //         .map(elem => elem.name)[0];
+            return this.users
+            .find(elem => elem.id === id).name;
+            //.map(elem => elem.name)[0];
     }
     
 }
