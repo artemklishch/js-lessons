@@ -49,8 +49,7 @@ const addItem = newItem => {
     tempObj.createDate = new Date();
     tempObj.completedDate = undefined;
     taskInput.value = '';
-    setItem('object', tempObj);
-    arrayOfTasks.push(getItem('object'));
+    arrayOfTasks.push(tempObj);
     setItem('arrayOfTasks', arrayOfTasks);
     renderListItems();
 };
