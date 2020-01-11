@@ -1,35 +1,25 @@
-export const markFavorites = (tree, favorites) => {
-    const isFavorite = favorites.includes(tree.id);
-    return {
-        ...tree,
-        isFavorite,
-        nodes: tree.nodes.map(childNode => markFavorites(childNode, favorites)),
+export const calc = value => {
+    let result = value;
+    const calculator = {
+        add(number){
+            result += number;
+            return this;
+        },
+        subtract(number){
+            result -= number;
+            return this;
+        },
+        mult(number){
+            result *= number;
+            return this;
+        },
+        div(number){
+            result /= number;
+            return this;
+        },
+        result(){
+            return result;
+        },
     };
+    return calculator;
 };
-
-
-// const tree = {
-// 	id: 'id-1',
-// 	name: 'Products',
-// 	nodes: [
-// 		{
-// 			id:'id-2',
-// 			name: 'Food',
-// 			nodes: [
-// 				{
-// 					id: 'id-6',
-// 					name: 'Drinks',
-// 					nodes: [],
-// 				},
-// 			],
-// 		},
-// 		{
-// 			id: 'id-17',
-// 			name: 'Vehicles',
-// 			nodes: [],
-// 		},
-// 	],
-// };
-// const favorites = ['id-6', 'id-17'];
-// const result = markFavorites(tree,favorites);
-// console.log(result);
