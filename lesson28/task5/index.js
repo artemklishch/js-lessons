@@ -1,5 +1,5 @@
 export const shmoment = valueDate => {
-    let result = valueDate;
+    let result = new Date(valueDate);
     const dateChanger = {
         add(typeOfTime, valueOfTime){
             if(typeOfTime === 'years')result = new Date(result.setFullYear(result.getFullYear()+valueOfTime));
