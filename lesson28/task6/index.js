@@ -20,8 +20,8 @@ export const maxFibonacci = (value) => {
     };
     return fibMethods;
 };
-const result = maxFibonacci(15).fibFunc().result();
-console.log(result);
+// // const result = maxFibonacci(15).fibFunc().result();
+// console.log(result);
 
 
 
