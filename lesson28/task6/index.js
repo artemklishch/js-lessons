@@ -62,4 +62,4 @@ export const maxFibonacci = func => value => {
 };
 
 const findMaxFibNumber = maxFibonacci(fibFunc);
-console.log(findMaxFibNumber(15));
+//console.log(findMaxFibNumber(15));
