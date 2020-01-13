@@ -1,0 +1,1 @@
+export const sum = value => value === 1 ? 1 : value + sum(value - 1);
