@@ -23,7 +23,7 @@
 // const result = maxFibonacci(15).fibFunc().result();
 // console.log(result);
 
-const maxFibonacci = (n) => {
+export const maxFibonacci = (n) => {
     let a = 1;
     let b = 1;
     for (let i = 3; i <= n; i++) {
