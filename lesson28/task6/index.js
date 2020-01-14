@@ -14,7 +14,7 @@ export const maxFibonacci = value => {
         } else return maxFib;
     }
 }; 
-maxFibonacci(15);
+//console.log(maxFibonacci(15));
 
 
 //maxFibonacci(15) // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34
