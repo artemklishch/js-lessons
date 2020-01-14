@@ -12,7 +12,6 @@ export const maxFibonacci = value => {
             maxFib = fib;
             index++;
         } else return maxFib;
-        
     }
 }; 
 //console.log(maxFibonacci(9));
