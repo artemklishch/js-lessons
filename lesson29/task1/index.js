@@ -15,13 +15,10 @@ export const addImage = (imgSrc, callback) => {
 
 };
 
-const callback = (error, data) => {
+const callback = error => {
 	if(error){
 		console.log(error);
 		return;
 	}
-	const { width, height } = data;
-	const sizeElem = document.querySelector('.image-size');
-	sizeElem.textContent = `${width} x ${height}`;
 };
 addImage('https://server.com/image.png', callback);
