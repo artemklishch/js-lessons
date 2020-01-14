@@ -12,9 +12,8 @@ export const requestUserData = (userId, callback) => {
     }
     
 };
-//const onFormUserData = (error, data) => data;
-
-//requestUserData('broken', onFormUserData);
+const onFormUserData = (error, data) => data;
+requestUserData('userid777', onFormUserData);
 
 
 
