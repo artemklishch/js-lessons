@@ -8,13 +8,13 @@ export const maxFibonacci = value => {
     let maxFib = 0;
     while(true){
         let fib = fibonacci(index);
-        if(fib < value){
+        if(fib <= value){
             maxFib = fib;
             index++;
         } else return maxFib;
     }
 }; 
-//console.log(maxFibonacci(15));
+// console.log(maxFibonacci(8));
 
 
 //maxFibonacci(15) // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34
