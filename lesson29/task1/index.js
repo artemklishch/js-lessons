@@ -15,10 +15,10 @@ export const addImage = (imgSrc, callback) => {
 
 };
 
-const callback = error => {
-	if(error){
-		console.log(error);
-		return;
-	}
-};
-addImage('https://server.com/image.png', callback);
+// const callback = error => {
+// 	if(error){
+// 		console.log(error);
+// 		return;
+// 	}
+// };
+//addImage('https://server.com/image.png', callback);
