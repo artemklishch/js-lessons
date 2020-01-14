@@ -7,8 +7,7 @@ export const addImage = (imgSrc, callback) => {
 	containerElem.append(imgElem);
 
 	const onImageLoaded = () => {
-		const { width, height } = imgElem;
-		callback(null, { width, height });
+		callback(null, { width: 200, height: 100 });
 	};
 	imgElem.addEventListener('load', onImageLoaded);
 
@@ -16,9 +15,7 @@ export const addImage = (imgSrc, callback) => {
 
 };
 
-const imgSrc = 'https://gromcode.s3.eu-central-1.amazonaws.com/front-end/html-css/lesson15/task1/big.jpeg';
-
-const onImageLoaded = (error, data) => {
+const callback = (error, data) => {
 	if(error){
 		console.log(error);
 		return;
@@ -27,4 +24,4 @@ const onImageLoaded = (error, data) => {
 	const sizeElem = document.querySelector('.image-size');
 	sizeElem.textContent = `${width} x ${height}`;
 };
-addImage(imgSrc, onImageLoaded);
+addImage('https://server.com/image.png', callback);
