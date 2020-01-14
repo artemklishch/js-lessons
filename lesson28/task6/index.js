@@ -3,12 +3,12 @@ export const fibonacci = num => {
     return fibonacci(num - 1) + fibonacci(num - 2);
 };
 
-export const maxFibonacci = input => {
+export const maxFibonacci = value => {
     let index = 0;
     let maxFib = 0;
     while(true){
         let fib = fibonacci(index);
-        if(fib < input){
+        if(fib < value){
             maxFib = fib;
             index++;
         } else return maxFib;
