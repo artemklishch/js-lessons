@@ -1,5 +1,8 @@
-export const delay = (delay, callback, context, ...args) => {
-    setTimeout(() => callback.call(this, context, args), delay);
+export const delay = (delay, callback, context) => {
+    return function(...args){
+        setTimeout(() => callback.apply(context, args), delay);
+    }
+    
 };
 
 // const object = {
@@ -7,8 +10,9 @@ export const delay = (delay, callback, context, ...args) => {
 //     age: 27,
 // };
 
-// const someCallback = (obj, ...args) => {
+// const someCallback = (obj) => {
 //     console.log(obj);
 // };
-// delay(3000, someCallback, object, object.place = 'hjhj');
+// const a = delay(3000, someCallback, object);
+// a(object.place = 'hjhj');
 
