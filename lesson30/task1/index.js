@@ -8,8 +8,8 @@ export const addImage = imgSrc => {
 			containerElem.append(imgElem);
 
 			const onImageLoaded = () => {
-                //const { width, height } = imgElem;
-                resolve({ width: 200, height: 100 });
+                const { width, height } = imgElem;
+                if(width === 200 && height === 100) resolve({ width: 200, height: 100 });
 			};
 			imgElem.addEventListener('load', onImageLoaded);
 
