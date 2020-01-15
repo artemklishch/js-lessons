@@ -22,8 +22,8 @@ export const requestUserData = (userId, callback) => {
         email:'userid777@example.com'
     }), timeSeconds);
 };
-// const onFormUserData = (error, data) => console.log(data);
-// requestUserData('sdfsdfsdf', onFormUserData);
+const onFormUserData = (error, data) => console.log(data);
+requestUserData('userid777', onFormUserData);
 
 
 
