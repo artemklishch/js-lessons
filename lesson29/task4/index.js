@@ -15,22 +15,19 @@ export const requestUserData = (userId, callback) => {
         setTimeout(() => callback(null,'Failed to load user data'), timeSeconds);
         return;
     }
-    setTimeout(() => callback(null, {
+    setTimeout(() => callback({
         name: 'John',
         age: 17,
         userId: userId,
         email:`${userId}@example.com`
     }), timeSeconds);
 };
-//const onFormUserData = (error, data) => data;
+const onFormUserData = (firstArg, data) => {
+    if(firstArg === null) return data;
+    return firstArg;
+};
 
-// const onFormUserData = (error, data) => {
-//     if(error){
-//         return;
-//     }
-//     return data;
-// };
-//requestUserData('userid777', onFormUserData);
+requestUserData('userid777', onFormUserData);
 
 
 
