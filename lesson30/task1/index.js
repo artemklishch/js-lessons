@@ -8,7 +8,7 @@ export const addImage = imgSrc => {
 			containerElem.append(imgElem);
 
 			const onImageLoaded = () => {
-				const { width, height } = {width: 200, height: 100};
+				const { width, height } = imgElem;
 				resolve({ width, height });
 			};
 			imgElem.addEventListener('load', onImageLoaded);
@@ -18,7 +18,7 @@ export const addImage = imgSrc => {
 	return p;
 };
 
-//const imgSrc = 'https://gromcode.s3.eu-central-1.amazonaws.com/front-end/html-css/lesson15/task1/big.jpeg';
-// const resultPromise = addImageWithPromise(imgSrc);
-// resultPromise.then(data => console.log(data));
-// resultPromise.catch(error => console.log(error));
+const imgSrc = 'https://gromcode.s3.eu-central-1.amazonaws.com/front-end/html-css/lesson15/task1/big.jpeg';
+const resultPromise = addImageWithPromise(imgSrc);
+resultPromise.then(data => console.log(data));
+resultPromise.catch(error => console.log(error));
