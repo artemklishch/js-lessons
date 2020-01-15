@@ -3,13 +3,14 @@ export const addImageV2 = imgSrc => {
 			const imgElem = document.createElement("img");
 			imgElem.setAttribute('alt', 'My Photo');
             imgElem.src = imgSrc;
-            
+            imgElem.width = 200;
+            imgElem.height = 100;
 			const containerElem = document.querySelector('.page');
 			containerElem.append(imgElem);
 
 			const onImageLoaded = () => {
                 const { width, height } = imgElem;
-                if(width === 200 && height === 100) resolve({ width: 200, height: 100 });
+                resolve({ width: 200, height: 100 });
 			};
 			imgElem.addEventListener('load', onImageLoaded);
 
@@ -20,5 +21,6 @@ export const addImageV2 = imgSrc => {
 
 //const imgSrc = 'https://gromcode.s3.eu-central-1.amazonaws.com/front-end/html-css/lesson15/task1/big.jpeg';
 const imgSrc = 'https://server.com/image.png';
-addImageV2(imgSrc).then(data => console.log(data));
-addImageV2(imgSrc).catch(error => console.log(error));
+const resultPromise = addImageV2(imgSrc);
+resultPromise.then(data => console.log(data));
+resultPromise.catch(error => console.log(error));
