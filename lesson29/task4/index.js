@@ -7,7 +7,7 @@
 //     .map(() => Math.floor(Math.random()*(max-min+1)+min));
 // };
 const getRandomNumber = (min, max) => max < min
-    ? null :Math.floor(Math.random()*(max-min+1)+min);
+    ? null : Math.floor(Math.random()*(max-min+1)+min);
 
 export const requestUserData = (userId, callback) => {
     const randomNumber = getRandomNumber(1,3);
