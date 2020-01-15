@@ -10,10 +10,9 @@ const getRandomNumber = (min, max) => max < min
     ? null : Math.floor(Math.random()*(max-min+1)+min);
 
 export const requestUserData = (userId, callback) => {
-    const randomNumber = getRandomNumber(1,3);
+    const timeSeconds = getRandomNumber(1,3) * 1000;
     if(userId === 'broken'){
-        setTimeout(() => callback(null,'Failed to load user data'),
-            randomNumber * 1000);
+        setTimeout(() => callback(null,'Failed to load user data'), timeSeconds);
         return;
     }
     setTimeout(() => callback(null, {
@@ -21,7 +20,7 @@ export const requestUserData = (userId, callback) => {
         age: 18,
         userId: userId,
         email:'ed@df.com'
-    }), randomNumber * 1000);
+    }), timeSeconds);
 };
 //const onFormUserData = (error, data) => data;
 //requestUserData('sdfsdfsdf', onFormUserData);
