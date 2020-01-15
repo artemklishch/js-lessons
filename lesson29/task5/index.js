@@ -7,9 +7,7 @@ export const delay = (delay, callback, context, ...args) => {
 //     age: 27,
 // };
 
-
-
 // const someCallback = (obj, ...args) => {
 //     console.log(obj);
 // };
-// delay(3000, someCallback, object, object.place = 'sdfs');
+// delay(3000, someCallback, object, object.place = 'hjhj');
