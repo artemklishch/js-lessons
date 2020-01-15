@@ -18,8 +18,8 @@ export const requestUserData = (userId, callback) => {
     setTimeout(() => callback(null, {
         name: 'Tom',
         age: 18,
-        userId: userId,
-        email:'ed@df.com'
+        email: userId,
+        //email:'ed@df.com'
     }), timeSeconds);
 };
 //const onFormUserData = (error, data) => data;
