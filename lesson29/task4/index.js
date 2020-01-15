@@ -19,10 +19,10 @@ export const requestUserData = (userId, callback) => {
         name: 'John',
         age: 17,
         userId: userId,
-        email:'userid777@example.com'
+        email:`${userId}@example.com`
     }), timeSeconds);
 };
-const onFormUserData = (error, data) => console.log(data);
+const onFormUserData = (error, data) => data;
 requestUserData('userid777', onFormUserData);
 
 
