@@ -22,7 +22,7 @@ export const requestUserData = (userId, callback) => {
         email:`${userId}@example.com`
     }), timeSeconds);
 };
-const onFormUserData = (error, data) => data;
+//const onFormUserData = (error, data) => data;
 
 // const onFormUserData = (error, data) => {
 //     if(error){
