@@ -16,10 +16,10 @@ export const requestUserData = (userId, callback) => {
         return;
     }
     setTimeout(() => callback(null, {
-        name: 'Tom',
-        age: 18,
+        name: 'John',
+        age: 17,
         userId: userId,
-        email:`${userId}@example.com`
+        email:'userid777@example.com'
     }), timeSeconds);
 };
 // const onFormUserData = (error, data) => console.log(data);
