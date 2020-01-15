@@ -1,4 +1,4 @@
-export const addImage = imgSrc => {
+export const addImage = ('https://server.com/image.png') => {
 	const p = new Promise((resolveCb, rejectCb) => {
 			const imgElem = document.createElement("img");
 			imgElem.setAttribute('alt', 'My Photo');
@@ -19,6 +19,6 @@ export const addImage = imgSrc => {
 };
 
 //const imgSrc = 'https://gromcode.s3.eu-central-1.amazonaws.com/front-end/html-css/lesson15/task1/big.jpeg';
-const resultPromise = addImageWithPromise('https://server.com/image.png');
-resultPromise.then(data => console.log(data));
-resultPromise.catch(error => console.log(error));
+// const resultPromise = addImageWithPromise(imgSrc);
+// resultPromise.then(data => console.log(data));
+// resultPromise.catch(error => console.log(error));
