@@ -3,15 +3,17 @@ export const addImage = imgSrc => {
 			const imgElem = document.createElement("img");
 			imgElem.setAttribute('alt', 'My Photo');
 			imgElem.src = imgSrc;
-            
+            imgElem.width = 200;
+            imgElem.height = 100;
+
 			const containerElem = document.querySelector('.page');
 			containerElem.append(imgElem);
 
 			const onImageLoaded = () => {
                 const { width, height } = imgElem;
                 if(width === 200 && height === 100){
-                    resolve({ width, height });
-                }else reject(new Error('Image load failed'));
+                    return resolve({ width, height });
+                }else return reject(new Error('Image load failed'));
 				
 			};
 			imgElem.addEventListener('load', onImageLoaded);
