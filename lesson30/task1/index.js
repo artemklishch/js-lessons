@@ -2,14 +2,16 @@ export const addImage = imgSrc => {
 	const p = new Promise((resolve, reject) => {
 			const imgElem = document.createElement("img");
 			imgElem.setAttribute('alt', 'My Photo');
-			imgElem.src = imgSrc;
+            imgElem.src = imgSrc;
+            imgElem.width = 200;
+            imgElem.height = 100;
             
 			const containerElem = document.querySelector('.page');
 			containerElem.append(imgElem);
 
 			const onImageLoaded = () => {
                 const { width, height } = imgElem;
-                if(width === 200 && height === 100)resolve({ width, height });
+                resolve({ width, height });
 			};
 			imgElem.addEventListener('load', onImageLoaded);
 
