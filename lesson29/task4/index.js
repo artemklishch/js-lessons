@@ -23,7 +23,7 @@ export const requestUserData = (userId, callback) => {
         email:'ed@df.com'
     }), randomNumber * 1000);
 };
-const onFormUserData = (error, data) => data;
+//const onFormUserData = (error, data) => data;
 //requestUserData('sdfsdfsdf', onFormUserData);
 
 
