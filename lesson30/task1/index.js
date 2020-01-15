@@ -5,7 +5,7 @@ export const addImage = imgSrc => {
 			imgElem.src = imgSrc;
             imgElem.width = 200;
             imgElem.height = 100;
-            
+
 			const containerElem = document.querySelector('.page');
 			containerElem.append(imgElem);
 
@@ -15,7 +15,7 @@ export const addImage = imgSrc => {
 			};
 			imgElem.addEventListener('load', onImageLoaded);
 
-			imgElem.addEventListener('error', () => reject(new Error('Image load failed')));
+			imgElem.addEventListener('error', () => resolve(new Error('Image load failed')));
 		});
 	return p;
 };
