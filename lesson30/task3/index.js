@@ -4,13 +4,16 @@ export const addImageV2 = imgSrc => {
     return new Promise((resolve, reject) => {
         const result = addImage(imgSrc);
 
-        const onImageLoaded = () => {
-            const { width, height } = result;
-            resolve({ width, height });
-        };
-        result.addEventListener('load', onImageLoaded);
+        if(result){
+            resolve(result);
+        }else reject('Image load failed');
+        // const onImadfsgeLoaded = () => {
+        //     const { width, height } = result;
+        //     resolve({ width, height });
+        // };
+        // result.addEventListener('load', onImageLoaded);
 
-        result.addEventListener('error', () => reject('Image load failed'));
+        // result.addEventListener('error', () => reject('Image load failed'));
     });
 };
 

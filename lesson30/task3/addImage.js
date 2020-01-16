@@ -18,6 +18,4 @@ export const addImage = (imgSrc) => {
     
     imgElem.addEventListener('error', () => onImageL('Image load failed'));
 
-    return imgElem;
-
 };
