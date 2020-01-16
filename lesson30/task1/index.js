@@ -13,7 +13,7 @@ export const addImage = imgSrc => {
 			};
 			imgElem.addEventListener('load', onImageLoaded);
 
-			imgElem.addEventListener('error', () => reject(new Error('Image load failed')));
+			imgElem.addEventListener('error', reject('Image load failed'));
 		});
 	return p;
 };
