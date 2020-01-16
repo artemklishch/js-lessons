@@ -1,14 +1,15 @@
-
 export const addImage = (imgSrc) => {
-	const imgElem = document.createElement("img");
-	imgElem.setAttribute('alt', 'My Photo');
-	imgElem.src = imgSrc;
+    return new Promise((resolve,reject) => {
+        const imgElem = document.createElement("img");
+        imgElem.setAttribute('alt', 'My Photo');
+        imgElem.src = imgSrc;
 
-	const containerElem = document.querySelector('.page');
-    containerElem.append(imgElem);
-    imgElem.width = 200;
-    imgElem.height = 100;
+        const containerElem = document.querySelector('.page');
+        containerElem.append(imgElem);
 
-    return imgElem;
-
+        const onImageLoaded = () => resolve({ width: 200, height: 100 });
+        imgElem.addEventListener('load', onImageLoaded);
+        
+        imgElem.addEventListener('error', () => reject('Image load failed'));
+    });
 };
