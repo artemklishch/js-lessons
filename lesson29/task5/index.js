@@ -6,8 +6,7 @@ export const delay = (delay, callback, context, ...args) => {
 //     name: 'Tom',
 //     age: 27,
 // };
-
-// const someCallback = (obj) => {
+// function someCallback(obj){
 //     console.log(obj);
 // };
 // delay(3000, someCallback, object);
