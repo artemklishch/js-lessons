@@ -1,9 +1,22 @@
 import { addImage } from './addImage.js';
 
-export const addImageV2 = callback => {
-    return new Promise(
-        
-    );
+export const addImageV2 = imgSrc => {
+    return new Promise((resolve, reject) => {
+        const result = addImage(imgSrc);
+
+        const onImageLoaded = () => {
+            const { width, height } = result;
+            resolve({ width, height });
+        };
+        result.addEventListener('load', onImageLoaded);
+
+        result.addEventListener('error', () => reject('Image load failed'));
+    });
 };
 
 
+const imgSrc = 'https://gromcode.s3.eu-central-1.amazonaws.com/front-end/html-css/lesson15/task1/big.jpeg';
+
+const resultPromise = addImageV2(imgSrc);
+resultPromise.then(data => console.log(data));
+resultPromise.catch(error => console.log(error));
