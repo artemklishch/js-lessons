@@ -40,8 +40,8 @@ export const getMostActiveDevs = ({ userId, repoId, days }) => {
     const startDate = new Date(new Date().setDate(new Date().getDate() - object.days));
     return fetch(`https://api.github.com/repos/${object.userId}/${object.repoId}/commits?per_page=100`)
         .then(response => response.json())
-        .then(fullArray => 
-            fullArray
+        .then(fullArray => {
+            const filteredArray = fullArray
                 .map(elem => {
                     return {
                         count: 0,
@@ -51,24 +51,22 @@ export const getMostActiveDevs = ({ userId, repoId, days }) => {
                         avatar: elem.author.avatar_url,
                     }
                 })
-                .filter(elem => elem.date > startDate)
-        )
-        .then(filteredArray => {
+                .filter(elem => elem.date > startDate);
             filteredArray
-                .map(elem => {
-                    for(let j = 0; j < filteredArray.length; j++){
-                        if(elem.name === filteredArray[j].name){
-                            elem.count++;
+                    .map(elem => {
+                        for(let j = 0; j < filteredArray.length; j++){
+                            if(elem.name === filteredArray[j].name){
+                                elem.count++;
+                            }
                         }
-                    }
-                });
+                    });
             for(let i = 0; i < filteredArray.length; i++){
                 if(maxCount < filteredArray[i].count){
                     maxCount = filteredArray[i].count;
                 }
             }
             const tempArr = filteredArray
-                .filter(elem => elem.count === maxCount);
+            .filter(elem => elem.count === maxCount);
             const arr = [];
             for(let i = 0; i < tempArr.length; i++){
                 if(arr.length > 0){
@@ -87,5 +85,6 @@ export const getMostActiveDevs = ({ userId, repoId, days }) => {
                 delete elem.date;
             })
             return arr;
-        });
+        })
+        .then(res => console.log(res));
 };
