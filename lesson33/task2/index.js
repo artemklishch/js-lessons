@@ -27,15 +27,15 @@ const userDaysInputEelem = document.querySelector('.days-form__input');
 
 
 const forGetUserObject = () => {
-    const tempObj = {};
-    tempObj.days = userDaysInputEelem.value;
-    tempObj.userId = userIdInputEelem.value;
-    tempObj.repoId = userRepoInputEelem.value;
-    getMostActiveDevs(tempObj);
+    const days = userDaysInputEelem.value;
+    const userId = userIdInputEelem.value;
+    const repoId = userRepoInputEelem.value;
+    getMostActiveDevs({ userId, repoId, days });
 };
 showUserBtnElem.addEventListener('click', forGetUserObject);
 
-export const getMostActiveDevs = object => {
+export const getMostActiveDevs = ({ userId, repoId, days }) => {
+    const object = { userId, repoId, days };
     let maxCount = 0;
     const startDate = new Date(new Date().setDate(new Date().getDate() - object.days));
     return fetch(`https://api.github.com/repos/${object.userId}/${object.repoId}/commits?per_page=100`)
