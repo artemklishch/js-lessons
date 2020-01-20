@@ -6,17 +6,9 @@ userAvatarElem.src = defaultAvatar;
 
 //https://api.github.com/repos/USERID/REPOID/commits?per_page=100
 
-
-
-// const fetchUserData = userName => {
-// 	return fetch(`https://api.github.com/users/${userName}`)
-//         .then(response => console.log(response));
-//         //.then(result => console.log(result));
-// };
-
 const renderUserData = userData => {
-	const { avatar_url, name } = userData;
-	userAvatarElem.src = avatar_url;
+	const { avatar, name } = userData;
+	userAvatarElem.src = avatar;
 	userNameElem.textContent = name;
 };
 
