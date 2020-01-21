@@ -26,6 +26,7 @@ const forGetUserObject = () => {
 };
 showUserBtnElem.addEventListener('click', forGetUserObject);
 
+
 export const getMostActiveDevs = ({ userId, repoId, days }) => {
     const object = { userId, repoId, days };
     let maxCount = 0;
@@ -33,50 +34,47 @@ export const getMostActiveDevs = ({ userId, repoId, days }) => {
     return fetch(`https://api.github.com/repos/${object.userId}/${object.repoId}/commits?per_page=100`)
         .then(response => response.json())
         .then(fullArray => {
-            const filteredArray = fullArray
+           return fullArray
                 .map(elem => {
                     return {
-                        count: 0,
                         name: elem.commit.author.name,
                         email: elem.commit.author.email,
                         date: new Date(elem.commit.author.date),
                         avatar: elem.author.avatar_url,
                     }
                 })
-                .filter(elem => elem.date > startDate);
-            filteredArray
-                    .map(elem => {
-                        for(let j = 0; j < filteredArray.length; j++){
-                            if(elem.name === filteredArray[j].name){
-                                elem.count++;
-                            }
-                        }
-                    });
-            for(let i = 0; i < filteredArray.length; i++){
-                if(maxCount < filteredArray[i].count){
-                    maxCount = filteredArray[i].count;
-                }
-            }
-            const tempArr = filteredArray
-            .filter(elem => elem.count === maxCount);
-            const arr = [];
-            for(let i = 0; i < tempArr.length; i++){
-                if(arr.length > 0){
-                    for(let j = 0; j < arr.length; j++){
-                        if(tempArr[i].name === arr[j].name){
-                            continue;
-                        }else arr.push(tempArr[i]);
-                    }
-                }else arr.push(tempArr[i]);
-            }
-            arr.forEach(elem => {
-                renderUserData(elem);
-            })
-            arr.map(elem => {
-                delete elem.avatar;
-                delete elem.date;
-            })
-            return arr;
+                .filter(elem => elem.date > startDate)
+                .sort((a,b) => a.name.localeCompare(b.name));
         })
-        .then(res => console.log(res));
+        .then(filteredDateArray => {
+            const arrayWithCount = filteredDateArray
+                .reduce((acc, elem, index, array) => {
+                    let count = 0;
+                    array.forEach(element => {
+                        if(elem.name === element.name) count++;
+                    })
+                    array.splice(0,count-1);
+                    acc.push({
+                        count: count,
+                        name: elem.name,
+                        email: elem.email,
+                        avatar:elem.avatar,
+                    });
+                    return acc;
+                },[]);
+            return arrayWithCount;
+        })
+        .then(arrayWithCount => {
+            arrayWithCount.forEach(elem => {
+                if(elem.count > maxCount) maxCount = elem.count;
+            });
+            const filteredArrayOfMaxCommits = arrayWithCount
+                .filter(elem => elem.count === maxCount);
+            filteredArrayOfMaxCommits.forEach(elem => {
+                renderUserData(elem);
+                delete elem.avatar;
+            });
+            return filteredArrayOfMaxCommits;
+        });
+        // .then(res => console.log(res));
 };
