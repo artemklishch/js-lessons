@@ -48,12 +48,12 @@ export const getMostActiveDevs = ({ userId, repoId, days }) => {
         })
         .then(filteredDateArray => {
             const arrayWithCount = filteredDateArray
-                .reduce((acc, elem, index, array) => {
+                .reduce((acc, elem) => {
                     let count = 0;
-                    array.forEach(element => {
+                    filteredDateArray.forEach(element => {
                         if(elem.name === element.name) count++;
                     })
-                    array.splice(0,count-1);
+                    filteredDateArray.splice(0,count-1);
                     acc.push({
                         count: count,
                         name: elem.name,
@@ -75,6 +75,6 @@ export const getMostActiveDevs = ({ userId, repoId, days }) => {
                 delete elem.avatar;
             });
             return filteredArrayOfMaxCommits;
-        });
-        // .then(res => console.log(res));
+        })
+        .then(res => console.log(res));
 };
