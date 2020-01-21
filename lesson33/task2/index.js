@@ -71,7 +71,6 @@ export const getMostActiveDevs = ({ userId, repoId, days }) => {
                         count: count,
                         name: elem.name,
                         email: elem.email,
-                        avatar:elem.avatar,
                     });
                     return acc;
                 },[]);
