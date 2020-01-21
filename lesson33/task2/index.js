@@ -70,7 +70,7 @@ export const getMostActiveDevs = ({ userId, repoId, days }) => {
                         email: elem.email,
                     });
                     return acc;
-                },[]);
+                },[])
             filteredDateArray.forEach(elem => {
                 if(elem.count > maxCount) maxCount = elem.count;
             });
