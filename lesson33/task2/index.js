@@ -47,7 +47,7 @@ export const getMostActiveDevs = ({ userId, repoId, days }) => {
     return fetch(`https://api.github.com/repos/${object.userId}/${object.repoId}/commits?per_page=100`)
         .then(response => response.json())
         .then(fullArray => {
-           return fullArray
+           const filteredDateArray = fullArray
                 .map(elem => {
                     return {
                         name: elem.commit.author.name,
@@ -57,16 +57,13 @@ export const getMostActiveDevs = ({ userId, repoId, days }) => {
                     }
                 })
                 .filter(elem => elem.date > startDate)
-                .sort((a,b) => a.name.localeCompare(b.name));
-        })
-        .then(filteredDateArray => {
-            const arrayWithCount = filteredDateArray
-                .reduce((acc, elem) => {
+                .sort((a,b) => a.name.localeCompare(b.name))
+                .reduce((acc, elem, index, array) => {
                     let count = 0;
-                    filteredDateArray.forEach(element => {
+                    array.forEach(element => {
                         if(elem.name === element.name) count++;
                     })
-                    filteredDateArray.splice(0,count-1);
+                    array.splice(0,count-1);
                     acc.push({
                         count: count,
                         name: elem.name,
@@ -74,13 +71,10 @@ export const getMostActiveDevs = ({ userId, repoId, days }) => {
                     });
                     return acc;
                 },[]);
-            return arrayWithCount;
-        })
-        .then(arrayWithCount => {
-            arrayWithCount.forEach(elem => {
+            filteredDateArray.forEach(elem => {
                 if(elem.count > maxCount) maxCount = elem.count;
             });
-            return arrayWithCount
+            return filteredDateArray
                 .filter(elem => elem.count === maxCount);
         });
 };
