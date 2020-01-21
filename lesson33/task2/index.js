@@ -6,16 +6,29 @@ userAvatarElem.src = defaultAvatar;
 
 //https://api.github.com/repos/USERID/REPOID/commits?per_page=100
 
-const renderUserData = userData => {
-	const { avatar, name } = userData;
-	userAvatarElem.src = avatar;
-	userNameElem.textContent = name;
-};
-
 const showUserBtnElem = document.querySelector('.name-form__btn');
 const userIdInputEelem = document.querySelector('.id-form__input');
 const userRepoInputEelem = document.querySelector('.repo-form__input');
 const userDaysInputEelem = document.querySelector('.days-form__input');
+
+
+const fetchUserData = userName => {
+	return fetch(`https://api.github.com/users/${userName}`)
+        .then(response => response.json());
+};
+const renderUserData = userData => {
+	const { avatar_url, name } = userData;
+	userAvatarElem.src = avatar_url;
+	userNameElem.textContent = name;
+};
+const onSearchUser = () => {
+	const userName = userIdInputEelem.value;
+	fetchUserData(userName)
+        .then(userData => renderUserData(userData));
+};
+showUserBtnElem.addEventListener('click', onSearchUser);
+
+
 
 
 const forGetUserObject = () => {
@@ -68,13 +81,7 @@ export const getMostActiveDevs = ({ userId, repoId, days }) => {
             arrayWithCount.forEach(elem => {
                 if(elem.count > maxCount) maxCount = elem.count;
             });
-            const filteredArrayOfMaxCommits = arrayWithCount
+            return arrayWithCount
                 .filter(elem => elem.count === maxCount);
-            filteredArrayOfMaxCommits.forEach(elem => {
-                renderUserData(elem);
-                delete elem.avatar;
-            });
-            return filteredArrayOfMaxCommits;
-        })
-        .then(res => console.log(res));
+        });
 };
