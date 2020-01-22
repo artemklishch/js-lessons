@@ -53,7 +53,6 @@ export const getMostActiveDevs = ({ userId, repoId, days }) => {
                         name: elem.commit.author.name,
                         email: elem.commit.author.email,
                         date: new Date(elem.commit.author.date),
-                        avatar: elem.author.avatar_url,
                     }
                 })
                 .filter(elem => elem.date > startDate)
