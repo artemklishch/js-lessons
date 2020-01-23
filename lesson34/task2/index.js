@@ -78,8 +78,8 @@ const onFormSubmit = event => {
         return fetch(baseUrl)
             .then(response => response.json())
             .then(arrayOfUserObjects => {
-                const obj = arrayOfUserObjects.find(elem => elem.email === email);
-                alert(JSON.stringify(obj, email));
+                // const obj = arrayOfUserObjects.find(elem => elem.email === email);
+                alert(JSON.stringify(arrayOfUserObjects));
             });
     })
     .catch(error => {
