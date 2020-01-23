@@ -103,13 +103,13 @@ const onFormSubmit = event => {
             .then(response => response.json())
             .then(arrayOfUserObjects => {
                 const obj = arrayOfUserObjects.find(elem => elem.email === email);
-                delete obj._id;
+                //delete obj._id;
                 alert(JSON.stringify(obj, email));
             });
     })
     .catch(error => {
         pErrorText.textContent = 'Failed to create user';
-        return new Error(console.log(`${error}`));
+        //return new Error(console.log(`${error}`));
     });
 }; 
 formElem.addEventListener('submit', onFormSubmit);
