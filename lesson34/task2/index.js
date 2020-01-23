@@ -46,27 +46,20 @@ const validate = (fieldName, value) => {
         .filter(errorText => errorText)
         .join('');
 };
-const onNameChange = event => {
+
+const onInputChange = event => {
     pErrorText.textContent = '';
-    const errorText = validate('name', event.target.value);
-    pName.textContent = errorText;
-    reportValidity();
-};
-const onEmailChange = event => {
-    pErrorText.textContent = '';
-    const errorText = validate('email', event.target.value);
-    pEmail.textContent = errorText;
-    reportValidity();
-};
-const onPasswordChange = event => {
-    pErrorText.textContent = '';
-    const errorText = validate('password', event.target.value); 
+    const typeOfInput = event.target.name;
+    const errorText = validate(typeOfInput, event.target.value); 
     pPassword.textContent = errorText;
     reportValidity();
 };
-nameInputElem.addEventListener('input', onNameChange);
-emailInputElem.addEventListener('input', onEmailChange);
-passwordInputElem.addEventListener('input', onPasswordChange);
+nameInputElem.addEventListener('input', onInputChange);
+emailInputElem.addEventListener('input', onInputChange);
+passwordInputElem.addEventListener('input', onInputChange);
+
+// [...document.querySelectorAll('.form-input')]
+//     .forEach(elem => elem.oninput = onInputChange)
 
 
 
@@ -90,20 +83,9 @@ passwordInputElem.addEventListener('input', onPasswordChange);
 const baseUrl = 'https://crudcrud.com/api/556aa25d52da4a9287a6bd1c6d7f7f31/emailObjects';
 const formElem = document.querySelector('.login-form');
 
-const onMakeInputsEmpty = () => {
-    emailInputElem.value = '';
-    nameInputElem.value = '';
-    passwordInputElem.value = ''; 
-};
 const onFindUserObject = (arrayOfUserObjects, email) => {
     const obj = arrayOfUserObjects.find(elem => elem.email === email);
     return { email: obj.email, name: obj.name, password: obj.password};
-};
-const getDataFromServer = email => {
-    return fetch(baseUrl)
-        .then(response => response.json())
-        .then(arrayOfUserObjects => 
-            alert(JSON.stringify(onFindUserObject(arrayOfUserObjects, email))));
 };
 const onMakeUserObject = taskData => {
     return fetch(baseUrl, {
@@ -114,10 +96,6 @@ const onMakeUserObject = taskData => {
         body: JSON.stringify(taskData),
     });
 };
-const onFailedCreateUser = error => {
-    pErrorText.textContent = 'Failed to create user';
-    return new Error(console.log(`${error}`));
-};
 const onFormSubmit = event => {
     event.preventDefault();
     const formData = [...new FormData(formElem)]
@@ -125,10 +103,17 @@ const onFormSubmit = event => {
     const email = formData.email;
     onMakeUserObject(formData)
         .then(() => {
-            getDataFromServer(email)
-            onMakeInputsEmpty();
+            emailInputElem.value = '';
+            nameInputElem.value = '';
+            passwordInputElem.value = ''; 
+            return fetch(baseUrl).then(response => response.json())
+                .then(arrayOfUserObjects => 
+                    alert(JSON.stringify(onFindUserObject(arrayOfUserObjects, email))));
         })
-        .catch(error => onFailedCreateUser(error));
+        .catch(error => {
+            pErrorText.textContent = 'Failed to create user';
+            return new Error(console.log(`${error}`));
+        });
 }; 
 formElem.addEventListener('submit', onFormSubmit);
 
