@@ -64,7 +64,7 @@ const onFormSubmit = event => {
     event.preventDefault();
     const formData = [...new FormData(formElem)]
         .reduce((acc,[field,value]) => ({...acc, [field]:value}),{});
-    const email = formData.email;
+    //const email = formData.email;
     return fetch(baseUrl, {
         method: 'POST',
         headers: {
