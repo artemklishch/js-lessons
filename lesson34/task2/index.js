@@ -79,7 +79,6 @@ const onFormSubmit = event => {
             .then(response => response.json())
             .then(arrayOfUserObjects => {
                 const obj = arrayOfUserObjects.find(elem => elem.email === email);
-                delete obj._id;
                 alert(JSON.stringify(obj, email));
             });
     })
