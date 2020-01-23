@@ -64,3 +64,7 @@ form {
     margin: 8px 0;
     text-align: center;
 }
+
+.error-text p{
+    margin: 0;
+}

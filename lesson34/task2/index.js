@@ -1,54 +1,135 @@
 const emailInputElem = document.querySelector('#email');
 const passwordInputElem = document.querySelector('#password');
+const nameInputElem = document.querySelector('#name');
 const btnElem = document.querySelector('.submit-button');
 const errorTextElem = document.querySelector('.error-text');
 
-const reportValidity = () => {
-    btnElem.removeAttribute('disabled');
-};
+const pEmail = document.createElement('p');
+const pPassword = document.createElement('p');
+const pName = document.createElement('p');
+const pErrorText = document.createElement('p');
+errorTextElem.append(pEmail,pName,pPassword,pErrorText);
 
-const isRequired = value => value 
-    ? undefined
-    : 'Required';
-const isEmail= value => value.includes('@') 
-    ? undefined
-    : 'Should be an email';
+const reportValidity = () => {
+    const emailP = pEmail.textContent; 
+    const nameP = pName.textContent; 
+    const passwordP = pPassword.textContent; 
+    if(emailP || nameP || passwordP){
+        btnElem.setAttribute('disabled','disabled');
+    }
+    if(!emailP && !nameP && !passwordP){
+        btnElem.removeAttribute('disabled');
+    }
+    if(emailInputElem.value === ''|| nameInputElem.value === ''|| passwordInputElem.value === ''){
+        btnElem.setAttribute('disabled','disabled');
+    }
+};
+reportValidity();
+
+const isRequiredPassword = value => value ? undefined : 'Required password';
+
+const isRequiredName = value => value ? undefined : 'Required name';
+
+const isRequiredEmail = value => value ? undefined : 'Required email';
+const isEmail= value => value.includes('@') ? undefined : 'Should be an email';
 
 const validatorsByFields = {
-    email: [isRequired, isEmail],
-    password: [isRequired],
+    email: [isRequiredEmail, isEmail],
+    password: [isRequiredPassword],
+    name: [isRequiredName],
 };
+
 const validate = (fieldName, value) => {
     const validators = validatorsByFields[fieldName];
     return validators
         .map(validator => validator(value))
         .filter(errorText => errorText)
-        .join(', ');
+        .join('');
 };
-
+const onNameChange = event => {
+    pErrorText.textContent = '';
+    const errorText = validate('name', event.target.value);
+    pName.textContent = errorText;
+    reportValidity();
+};
 const onEmailChange = event => {
+    pErrorText.textContent = '';
     const errorText = validate('email', event.target.value);
-    errorTextElem.textContent = errorText;
+    pEmail.textContent = errorText;
+    reportValidity();
 };
-
 const onPasswordChange = event => {
-    const errorText = validate('password', event.target.value);
-    errorTextElem.textContent = errorText;
+    pErrorText.textContent = '';
+    const errorText = validate('password', event.target.value); 
+    pPassword.textContent = errorText;
+    reportValidity();
 };
-
+nameInputElem.addEventListener('input', onNameChange);
 emailInputElem.addEventListener('input', onEmailChange);
 passwordInputElem.addEventListener('input', onPasswordChange);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const baseUrl = 'https://crudcrud.com/api/556aa25d52da4a9287a6bd1c6d7f7f31/emailObjects';
 const formElem = document.querySelector('.login-form');
 
+const onMakeInputsEmpty = () => {
+    emailInputElem.value = '';
+    nameInputElem.value = '';
+    passwordInputElem.value = ''; 
+};
+const onFindUserObject = (arrayOfUserObjects, email) => {
+    const obj = arrayOfUserObjects.find(elem => elem.email === email);
+    return { email: obj.email, name: obj.name, password: obj.password};
+};
+const getDataFromServer = email => {
+    return fetch(baseUrl)
+        .then(response => response.json())
+        .then(arrayOfUserObjects => 
+            alert(JSON.stringify(onFindUserObject(arrayOfUserObjects, email))));
+};
+const onMakeUserObject = taskData => {
+    return fetch(baseUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(taskData),
+    });
+};
+const onFailedCreateUser = error => {
+    pErrorText.textContent = 'Failed to create user';
+    return new Error(console.log(`${error}`));
+};
 const onFormSubmit = event => {
     event.preventDefault();
     const formData = [...new FormData(formElem)]
         .reduce((acc,[field,value]) => ({...acc, [field]:value}),{});
-    alert(JSON.stringify(formData));
+    const email = formData.email;
+    onMakeUserObject(formData)
+        .then(() => {
+            getDataFromServer(email)
+            onMakeInputsEmpty();
+        })
+        .catch(error => onFailedCreateUser(error));
 }; 
 formElem.addEventListener('submit', onFormSubmit);
-
-
 
 
