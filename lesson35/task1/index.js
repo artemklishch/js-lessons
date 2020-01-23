@@ -1,30 +1,27 @@
-import { fetchUserData, fetchRepositories } from './gateways.js';
-import { renderUserData } from './user.js';
-import { renderRepos } from './repos.js';
+window.addEventListener("error", function onUnhandledError (err) {
+    console.error("error", err.message);
+});
 
-const defaultUser = {
-	avatar_url: 'https://avatars3.githubusercontent.com/u10001',
-	name: '',
-	location: '',
-};
-renderUserData(defaultUser);
+let userParsingResult;
 
-const showUserBtnElem = document.querySelector('.name-form__btn');
-const userNameInputEelem = document.querySelector('.name-form__input');
+try {
+    const user = JSON.parse('{"name": "Tom"}');
+    console.log("User data: ", user);
+    userParsingResult = "success";
+} catch(e) {
+    userParsingResult = "error";
+} finally {
+    console.log(`User parsing finished with ${userParsingResult}`);
+}
 
-const onSearchUser = () => {
-	const userName = userNameInputEelem.value;
-	fetchUserData(userName)
-		.then(userData => {
-			renderUserData(userData);
-			return userData.repos_url;
-		})
-		.then(url => fetchRepositories(url))
-		.then(reposList => {
-			return renderRepos(reposList);
-		})
-		.catch(err => {
-			alert(err.message);
-		});
-};
-showUserBtnElem.addEventListener('click', onSearchUser);
+let productParsingResult;
+
+try {
+    const product = JSON.parse('{"name": "Meat"');
+    console.log("Product data: ", product);
+    productParsingResult = "success";
+} catch(e) {
+    productParsingResult = "error";
+} finally {
+    console.log(`Product parsing finished with ${productParsingResult}`);
+}
