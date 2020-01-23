@@ -83,37 +83,32 @@ passwordInputElem.addEventListener('input', onInputChange);
 const baseUrl = 'https://crudcrud.com/api/556aa25d52da4a9287a6bd1c6d7f7f31/emailObjects';
 const formElem = document.querySelector('.login-form');
 
-const onFindUserObject = (arrayOfUserObjects, email) => {
-    const obj = arrayOfUserObjects.find(elem => elem.email === email);
-    return { email: obj.email, name: obj.name, password: obj.password};
-};
-const onMakeUserObject = taskData => {
-    return fetch(baseUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify(taskData),
-    });
-};
 const onFormSubmit = event => {
     event.preventDefault();
     const formData = [...new FormData(formElem)]
         .reduce((acc,[field,value]) => ({...acc, [field]:value}),{});
     const email = formData.email;
-    onMakeUserObject(formData)
-        .then(() => {
-            emailInputElem.value = '';
-            nameInputElem.value = '';
-            passwordInputElem.value = ''; 
-            return fetch(baseUrl).then(response => response.json())
-                .then(arrayOfUserObjects => 
-                    alert(JSON.stringify(onFindUserObject(arrayOfUserObjects, email))));
-        })
-        .catch(error => {
-            pErrorText.textContent = 'Failed to create user';
-            return new Error(console.log(`${error}`));
-        });
+
+    return fetch(baseUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(formData),
+    }).then(() => {
+        emailInputElem.value = '';
+        nameInputElem.value = '';
+        passwordInputElem.value = ''; 
+        return fetch(baseUrl).then(response => response.json())
+            .then(arrayOfUserObjects => {
+                const obj = arrayOfUserObjects.find(elem => elem.email === email);
+                alert(JSON.stringify(obj, email));
+            });
+    })
+    .catch(error => {
+        pErrorText.textContent = 'Failed to create user';
+        return new Error(console.log(`${error}`));
+    });
 }; 
 formElem.addEventListener('submit', onFormSubmit);
 
