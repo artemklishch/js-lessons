@@ -46,7 +46,6 @@ const validate = (fieldName, value) => {
         .filter(errorText => errorText)
         .join('');
 };
-
 const onInputChange = event => {
     pErrorText.textContent = '';
     const typeOfInput = event.target.name;
@@ -58,37 +57,14 @@ nameInputElem.addEventListener('input', onInputChange);
 emailInputElem.addEventListener('input', onInputChange);
 passwordInputElem.addEventListener('input', onInputChange);
 
-// [...document.querySelectorAll('.form-input')]
-//     .forEach(elem => elem.oninput = onInputChange)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 const baseUrl = 'https://crudcrud.com/api/556aa25d52da4a9287a6bd1c6d7f7f31/emailObjects';
 const formElem = document.querySelector('.login-form');
-
 const onFormSubmit = event => {
     event.preventDefault();
     const formData = [...new FormData(formElem)]
         .reduce((acc,[field,value]) => ({...acc, [field]:value}),{});
     const email = formData.email;
-
     return fetch(baseUrl, {
         method: 'POST',
         headers: {
