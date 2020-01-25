@@ -12,26 +12,23 @@
 //         });
 // };
 // getUserBlogs(['google', 'facebook', 'gaearon'])
-//     .then(res => console.log(res));
+//     .then(res => console.log(res));    
+
+
 
 
 export const getUserBlogs = async arrayOfUsers => {
-    const arr = [];
-    arrayOfUsers.forEach(elem => arr.push(fetch(`https://api.github.com/users/${elem}`)));
-    return await Promise.all(arr)
-        .then(async array => {
-            const resArr = [];
-            array.forEach(async elem => {
-                elem = await elem.json(); 
-                resArr.push(elem.blog);
-            });
-            return await resArr;
+    return await Promise.all(
+        arrayOfUsers.map(async element => element = await fetch(`https://api.github.com/users/${element}`))        
+    )
+    .then(async arrayOfPromises => {
+        arrayOfPromises.map(async (elem,index) => {
+            const json = await elem.json();
+            const value = await json.blog;
+            arrayOfPromises.splice(index,1,value);
         });
+        return arrayOfPromises;
+    });
 };
 getUserBlogs(['google', 'facebook', 'gaearon'])
-    .then(res => console.log(res));
-    
-
-   
-
-    
+    .then(res => console.log(res));    
