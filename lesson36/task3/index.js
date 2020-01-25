@@ -1,5 +1,4 @@
 export const getUserBlogs = async arrayOfUsers => {
-    try{
         const pr = await new Promise((resolve,reject) => {
             const arr = [];
             arrayOfUsers.forEach(elem => {
@@ -14,10 +13,6 @@ export const getUserBlogs = async arrayOfUsers => {
             }else reject(new Error('There aren`t elements'));
         });
         return pr;
-    }catch(e){
-        console.log(e.message);
-    }
-    
 };
 // getUserBlogs(['google', 'facebook', 'gaearon']);
     
