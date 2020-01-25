@@ -1,37 +1,35 @@
 // export const getUserBlogs = async arrayOfUsers => {
-//         const pr = await new Promise((resolve,reject) => {
+//         return await Promise.all(
+//             arrayOfUsers.map(async element => element = await fetch(`https://api.github.com/users/${element}`))        
+//         )
+//         .then(async arrayOfPromises => {
 //             const arr = [];
-//             if(arrayOfUsers.length === 0){
-//                 reject(new Error('There aren`t elements'));
-//             }
-//             arrayOfUsers.forEach(elem => {
-//                 fetch(`https://api.github.com/users/${elem}`)
-//                     .then(response => response.json())
-//                     .then(res => {
-//                         arr.push(res.blog);
-//                     });   
+//             arrayOfPromises.forEach(async elem => {
+//                 const json = await elem.json();
+//                 arr.push(json.blog);
 //             });
-//             resolve(arr);     
+//             return arr;
 //         });
-//         return pr;
 // };
-
-export const getUserBlogs = async arrayOfUsers => {
-    const pr = await Promise.all(
-        arrayOfUsers.map(async element => element = await fetch(`https://api.github.com/users/${element}`))        
-    )
-    .then(async arrayOfPromises => {
-        const arr = [];
-        arrayOfPromises.forEach(async elem => {
-            const json = await elem.json();
-            arr.push(json.blog);
-        });
-        return arr;
-    });
-    return pr;
-};
 // getUserBlogs(['google', 'facebook', 'gaearon'])
 //     .then(res => console.log(res));
+
+
+export const getUserBlogs = async arrayOfUsers => {
+    const arr = [];
+    arrayOfUsers.forEach(elem => arr.push(fetch(`https://api.github.com/users/${elem}`)));
+    return await Promise.all(arr)
+        .then(async array => {
+            const resArr = [];
+            array.forEach(async elem => {
+                elem = await elem.json(); 
+                resArr.push(elem.blog);
+            });
+            return await resArr;
+        });
+};
+getUserBlogs(['google', 'facebook', 'gaearon'])
+    .then(res => console.log(res));
     
 
    
