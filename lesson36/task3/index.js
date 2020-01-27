@@ -1,4 +1,4 @@
-export const getUserBlogs = async arrayOfUsers => {
+export const getUsersBlogs = async arrayOfUsers => {
     const arrayOfPromises = arrayOfUsers
         .map(userId => {
             const responsePromise = fetch(`http://api.github.com/users/${userId}`);
@@ -7,9 +7,8 @@ export const getUserBlogs = async arrayOfUsers => {
             return userDataPromise;
         });
     const usersData = await Promise.all(arrayOfPromises);
-    const urlData = await usersData.map(elem => elem = elem.blog);
+    const urlData = usersData.map(elem => elem = elem.blog);
     return urlData;
-    
 };
-// getUserBlogs(['google', 'facebook', 'gaearon'])
+// getUsersBlogs(['google', 'facebook', 'gaearon'])
 //     .then(res => console.log(res));    
