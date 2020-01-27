@@ -1,7 +1,7 @@
 export const getUsersBlogs = async arrayOfUsers => {
     const arrayOfPromises = arrayOfUsers
         .map(userId => {
-            const responsePromise = fetch(`http://api.github.com/users/${userId}`);
+            const responsePromise = fetch(`https://api.github.com/users/${userId}`);
             const userDataPromise = responsePromise
                 .then(response => response.json());
             return userDataPromise;
