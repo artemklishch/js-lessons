@@ -40,11 +40,7 @@ export class UserRepository{
     
 }
 
-// const user1 = new User("11100000000", "Tomasso Campanella", "session 1");
-// const user2 = new User("11777777777", "Leonardo", "session 2");
-// let arr = [user1, user2];
-// const arrayOfUsers = new UserRepository(arr);
-// console.log(arrayOfUsers);
+// z
 // console.log(arrayOfUsers.getUserNames());
 // console.log(arrayOfUsers.getUserIds());
 // console.log(arrayOfUsers.getUserNameById("11100000000"));
