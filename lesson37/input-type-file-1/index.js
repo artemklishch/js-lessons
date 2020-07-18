@@ -23,7 +23,7 @@ function upload(ev) {
   let myFile = document.getElementById("avatar_img").files[0];
   fd.append("avatar", myFile, "avatar.png");
   // $_FILES['avatar']['file_name']  "avatar.png"
-  console.log(fd)
+
   let req = new Request(url, {
     method: "POST",
     headers: h,
@@ -33,6 +33,7 @@ function upload(ev) {
 
   fetch(req)
     .then((response) => {
+      console.log(fd)
       document.getElementById("output").textContent =
         "Response received from server";
     })
