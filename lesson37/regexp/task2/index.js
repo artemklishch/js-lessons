@@ -52,4 +52,3 @@ console.log(rep21);
 const rep22 = input2.replace(/<i>(.*?)<\/i>/gi, "<strong>$1</strong>");
 console.log(rep22);
 
-
